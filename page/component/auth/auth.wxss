@@ -1,0 +1,16 @@
+/* page/component/auth/auth.wxss */
+.main {
+  padding-top:300rpx; 
+  width: 100%;
+  text-align: center;
+}
+.main text {
+  color: #AB956D;
+  font-size: 45rpx;
+}
+.main button {
+  margin-top: 300rpx;
+  background-color: #AB956D;
+  color: white;
+  width: 40%;
+}

@@ -1,0 +1,15 @@
+<view class="main">
+    <view class="header">
+        <image src="{{thumb}}" class="thumb"></image>
+        <text class="nickname">{{nickname}}</text>
+        <text class="about">关于我们</text>
+    </view>
+    <view class="address-box">
+        <view class="address-manage">
+            <navigator url="/">个人信息</navigator>
+        </view>
+        <view class="address-manage">
+            <navigator url="/page/component/user/vip/vip">我的会员卡</navigator>
+        </view>
+    </view>
+</view>

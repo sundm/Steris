@@ -1,0 +1,42 @@
+/* page/component/user/vip/vip.wxss */
+page{
+  background-color:rgb(241, 248, 248);
+}
+.main{
+  margin-bottom: 20rpx;
+}
+.top{
+  margin-top:15rpx; 
+  text-align: center;
+  height: 100rpx;
+  width: 100%;
+  font-size: 50rpx;
+}
+.center-body{
+  margin: 15rpx 10rpx 0 10rpx;
+}
+.body-title image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.title-all{
+  margin-top: 250rpx;
+  text-align: center;
+}
+.body-title text {
+  color: white;
+  margin-left:15rpx; 
+  font-size: 45rpx;
+}
+.body-title{
+  height: 400rpx;
+  overflow: hidden;
+  background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574932730878&di=ea6e957a44385c520c5543a15886888f&imgtype=0&src=http%3A%2F%2Fpic.616pic.com%2Fbg_w1180%2F00%2F10%2F24%2Fouz8NlpXtD.jpg');
+  background-size:100% 100%;
+}
+.body-text{
+  margin-top: 10rpx;
+  background-color: white;
+  padding: 0 3% 0 3%;
+  font-size: 25rpx;
+}

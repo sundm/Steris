@@ -1,0 +1,23 @@
+<!--page/component/user/news/news.wxml-->
+
+<view class="main">
+  <view class="title">
+    <view class="title-top">
+      <text>{{title}}</text>
+    </view>
+    <view class="title-time">
+      <text>-- {{time}} --</text>
+    </view>
+  </view>
+  <view wx:for="{{newsInfo}}" wx:key="item" class="body">
+    <view wx:if="{{item.type=='1'}}" class="body-img">
+        <image src="{{item.img}}"></image>
+    </view>
+    <view wx:else class="body-text">
+      <text>{{item.content}}</text>
+    </view>
+  </view>
+  <view class="foot">
+    <!-- <text>-------   我也是有底线的   -------</text> -->
+  </view>
+</view>

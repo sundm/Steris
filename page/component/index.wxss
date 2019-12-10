@@ -1,0 +1,127 @@
+@import '../common/common.wxss';
+page{
+  background-color:rgb(241, 248, 248);
+}
+
+.search{
+    padding: 20rpx;
+}
+.search-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50rpx;
+    color: #aaa;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 20rpx;
+}
+.search-text icon{
+    margin-right: 10rpx;
+}
+swiper {
+    height: 421.5rpx;
+}
+swiper-item image {
+    width: 100%;
+    height: 100%;
+}
+
+.select-title,.newest-title{
+    width: 100%;
+    padding:20rpx 0;
+    height: 40rpx;
+    color: #AB956D;
+    text-align: center;
+}
+.newest-title{
+  padding-bottom: 30rpx;
+}
+.select-top-small{
+    width: 24%;
+    height: 185rpx;
+    float: left;
+    margin-left: 0.8%;
+    text-align: center;
+}
+.select-top{
+    width: 100%;
+    height: 140rpx;
+}
+.select-top-small navigator{
+    width: 100%;
+    height: 100%;    
+}
+.select-top-small navigator image{
+  display: block;
+  width: 40%;
+  height: 40%;
+  padding-left: 30%;
+}
+.select-top-small navigator text{
+  font-size: 20rpx;
+}
+
+.newest-table-null{
+  text-align: center;
+  padding-top:15rpx;
+  padding-bottom: 15rpx; 
+}
+.newest-table{
+  background-color: white;
+  border-radius: 8px;
+  height: 185rpx;
+  margin: 15rpx 10rpx 10rpx 15rpx;
+}
+.newest-table-img{
+  border-radius: 8px;
+  height: 175rpx;
+  width: 24%;
+  float: left;
+  margin: 5rpx 0 0 1%;
+}
+.newest-table-img image{
+  width: 100%;
+  height: 100%;
+}
+.newest-table-box{
+  height: 185rpx;
+  margin-left:2%; 
+  width: 73%;
+  float: left;
+  overflow: hidden;
+}
+.box-title{
+  border-bottom: 1rpx solid rgb(215, 240, 240);
+  height: 65rpx;
+  text-align: center;
+  font-size: 33rpx;
+  font-weight: bold;
+
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+/* 会员天地新闻内容 */
+.box-context{
+  height: 130rpx;
+  font-size:25rpx; 
+  text-indent: 50rpx;
+	text-align: left;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+.main-foot{
+  text-align: center;
+  font-size: 20rpx;
+  color: #AB956D;
+}

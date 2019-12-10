@@ -1,0 +1,5 @@
+<!--page/component/auth/auth.wxml-->
+<view class="main">
+  <text>欢迎进入WIN家</text>
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">开始使用</button>
+</view>

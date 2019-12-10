@@ -1,0 +1,62 @@
+<view class="main">
+    <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true" class="swiper-top">
+        <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+          <navigator>
+            <swiper-item>
+                <image src="{{item}}" class="slide-image" width="100%"/>
+            </swiper-item>
+          </navigator>
+        </block>
+    </swiper>
+    
+    <view class="selected">
+        <view class="select-title"><text>会员频道</text></view>
+        <view class="select-top">
+            <view class="select-top-small">
+                <navigator url="/page/component/user/club/club">
+                    <image src="/image/home/index/huiyuan_1.png"></image>
+                    <text>俱乐部介绍</text>
+                </navigator>
+            </view>
+            <view class="select-top-small">
+                <navigator url="/page/component/user/vip/vip">
+                    <image src="/image/home/index/ziyuan.png"></image>
+                    <text>会员权益</text>
+                </navigator>
+            </view>
+            <view class="select-top-small">
+                <navigator url="/page/component/user/file/file">
+                    <image src="/image/home/index/daxue.png"></image>
+                    <text>University资料</text>
+                </navigator>
+            </view>
+            <view class="select-top-small">
+                <navigator url="/page/component/user/file/file">
+                    <image src="/image/home/index/wenjianziliao.png"></image>
+                    <text>会议课件</text>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="newest">
+        <view class="newest-title"><text>活动通知</text></view>
+        <view wx:if="{{headInfo==''}}" class="newest-table-null">
+            <text>暂无活动通知！</text>
+        </view>
+    
+        <view wx:for="{{headInfo}}" wx:key="item" class="newest-table">
+          <navigator bindtap="navClick" url="/">
+            <view class="newest-table-img">
+              <image src="{{item.nImg}}"></image>
+            </view>
+            <view class="newest-table-box">
+              <view class="box-title">{{item.nTitle}}</view>
+              <view class="box-context">{{item.nContent}}</view>
+            </view>
+          </navigator>
+        </view>
+    </view>
+    <view class="main-foot">
+      <text>-------   我也是有底线的   -------</text>
+    </view>
+</view>

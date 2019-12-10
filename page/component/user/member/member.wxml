@@ -1,0 +1,16 @@
+<!--page/component/user/member/member.wxml-->
+<!-- 会员页面 -->
+<view class="main">
+    <view class="header">
+        <text class="nickname">ID：</text>
+        <text class="about">{{userInfo.rId}}</text>
+    </view>
+    <view class="header">
+        <text class="nickname">用户名：</text>
+        <text class="about">{{userInfo.uName}}</text>
+    </view>
+    <view class="header">
+        <text class="nickname">密码：</text>
+        <text class="about">{{userInfo.uPwd}}</text>
+    </view>
+</view>

@@ -1,0 +1,14 @@
+page{
+    background-color: #FFFFFF;
+}
+.weui-form__desc{
+  margin-bottom: 30rpx;
+}
+.weui-cell__bd job{
+  padding-left:30rpx; 
+}
+.thumb{
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+}

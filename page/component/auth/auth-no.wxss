@@ -1,0 +1,19 @@
+/* page/component/auth/auth-no.wxss */
+.main {
+  padding-top:40rpx; 
+  width: 100%;
+  text-align: center;
+}
+.text-o {
+  font-size: 45rpx;
+}
+.text-t {
+  margin-top:45rpx; 
+  font-size: 35rpx;
+}
+.main button {
+  margin-top: 80rpx;
+  background-color: #AB956D;
+  color: white;
+  width: 40%;
+}

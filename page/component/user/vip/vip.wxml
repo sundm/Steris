@@ -1,0 +1,22 @@
+<!--page/component/user/vip/vip.wxml-->
+<view class="main">
+  <!-- <view class="top">
+    <text>会员等级权益划分</text>
+  </view> -->
+  <view wx:for="{{vipCard}}" wx:key="{{index}}" class="center">
+    <view class="center-body">
+      <navigator url="/" data-index='{{index + 1}}' class="body-title"  bindtap="navClick">
+        <view class="title-all">
+          <image src="{{item.url}}"></image>
+          <text>{{item.title}}</text>
+        </view>
+      </navigator>
+      <view class="body-text" wx:if="{{showIndex == index + 1}}">
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="foot">
+  
+  </view>
+</view>

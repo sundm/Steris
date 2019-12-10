@@ -1,0 +1,25 @@
+<!--page/component/user/file/file.wxml-->
+<view class="main">
+  <view class="top" wx:for="{{fileData}}" wx:key="{{index}}" >
+    <view class="top-title" data-index='{{index + 1}}' catchtap='openData'>
+      <view class="top-title-image"><image src="/image/home/sanjiao.png"></image></view>
+      <text>{{item.type}}</text>
+    </view>
+    <view wx:if="{{showIndex == index + 1}}">
+      <view class="top-body" wx:for="{{item.data}}" wx:for-item="dd" wx:key="key">
+        <navigator class="top-body-table">
+          <view><image src="{{dd.imgUrl}}"></image></view>
+          <text>{{dd.name}}</text>
+        </navigator>
+      </view>
+    </view>
+    <!-- 消除浮动 -->
+    <view class="over"></view>
+    <!-- 消除浮动 -->
+  </view>
+  
+
+  <!-- <view data-url="http://192.168.16.100:8080/img/Test" data-type="pdf" catchtap='downloadFile' class="button">
+    <button>点击下载文件</button>
+  </view> -->
+</view>

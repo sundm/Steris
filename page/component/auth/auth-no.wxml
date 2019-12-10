@@ -1,0 +1,6 @@
+<!--page/component/auth/auth-no.wxml-->
+<view class="main">
+  <view class="text-o">温馨提示！</view>
+  <view class="text-t">为保证您的正常使用，请进行授权！</view>
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">重新授权</button>
+</view>

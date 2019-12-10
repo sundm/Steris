@@ -1,0 +1,63 @@
+<view class="page">
+  <view class="weui-form">
+    <view class="weui-form__text-area">
+        <view class="weui-form__title">
+          <image src="{{thumb}}" class="thumb"></image>
+        </view>
+        <view class="weui-form__desc">
+          <text class="nickname">{{nickname}}</text>
+        </view>
+    </view>
+  </view>
+	<view class="weui-cells weui-cells_after-title">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="weui-cell  weui-cell_vcode">
+          <view class="weui-cell__hd">
+              <view class="weui-label">手机号</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input name="phone" class="weui-input" placeholder="请输入手机号" />
+          </view>
+      </view>
+      <view class="weui-cell ">
+          <view class="weui-cell__hd">
+              <view class="weui-label">类别</view>
+          </view>
+          <view class="weui-cell__bd">
+              <picker bindchange="bindCasPickerChange" value="{{casIndex1}}" range="{{casArray}}">
+                <view>
+                  <input name="job" class="weui-input job" value="{{casArray[casIndex]}}"/>
+                </view>
+              </picker>
+          </view>
+      </view>
+      <view class="weui-cell  weui-cell_vcode">
+          <view class="weui-cell__hd">
+              <view class="weui-label">医院</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input name="hosp" class="weui-input" placeholder="请输入所属医院(选填)" />
+          </view>
+      </view>
+      <view class="weui-cell  weui-cell_vcode">
+          <view class="weui-cell__hd">
+              <view class="weui-label">推荐人</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input name="people" class="weui-input" placeholder="请输入推荐人(选填)" />
+          </view>
+      </view>
+      <view class="page__hd">
+          <button class="primary" formType="submit">确认提交</button>
+      </view>
+    </form>
+  </view>
+    <!-- <view class="page__bd">
+        <view class="weui-btn-area">
+            <button class="primary" type="default" bindtap="openSuccess">成功提示页</button>
+            <button class="weui-btn" type="default" bindtap="openFail">失败提示页</button>
+            <button class="weui-btn" type="default" bindtap="openText">无图标提示页</button>
+            <button class="weui-btn" type="default" bindtap="openTextPrimary">无图标提示页</button>
+        </view>
+    </view> -->
+</view>
