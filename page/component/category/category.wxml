@@ -1,8 +1,9 @@
 <view class="main">
     <view class="categroy-left">
-        <view wx:for="{{category}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}"
+        <view wx:for="{{category}}" wx:key="index" data-id="s{{item.id}}" data-index="{{index}}"
             bindtap="switchTab"
-            class="cate-list {{curIndex === index?'on':''}}">{{item.name}}</view>
+            class="cate-list {{curIndex === index?'on':''}}">{{item.name}}
+        </view>
     </view>
 
 <!-- categroy-right start -->
@@ -14,7 +15,7 @@
                 </view>
                 <view class="product">
                     <view class="product-list" wx:for="{{item.detail}}" wx:key="index" wx:for-item="val">
-                        <navigator url="datails/datails">
+                        <navigator url="{{val.url}}">
                             <image src="{{val.thumb}}"></image>
                             <view class="classname"><text>{{val.name}}</text></view>
                         </navigator>

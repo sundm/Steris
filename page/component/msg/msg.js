@@ -3,7 +3,7 @@ const app = getApp()
 Page({
   data:{
     casIndex: 0,
-    casArray: ['请选择','代理商', '医生'],
+    casArray: ['请选择', '代理商', '医护人员', '销售人员'],
     thumb: '',
     nickname: ''
   },
@@ -40,16 +40,21 @@ Page({
       success(res) {
         if (res.data.code == "9000") {
           wx.setStorageSync("usertype", "1")
-          wx.redirectTo({
+          wx.navigateTo({
             url: '/page/component/msg/msg_success'
           })
         } else {
-          wx.redirectTo({
+          wx.navigateTo({
             url: '/page/component/msg/msg_fail'
           })
         }
 
       }
+    })
+  },
+  goHome:function(){
+    wx.switchTab({
+      url: '/page/component/index'
     })
   },
   /**

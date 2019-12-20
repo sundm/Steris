@@ -13,7 +13,7 @@ page{
   font-size: 50rpx;
 }
 .center-body{
-  margin: 15rpx 10rpx 0 10rpx;
+  margin: 15rpx 2% 0% 2%;
 }
 .body-title image{
   width: 50rpx;
@@ -31,7 +31,7 @@ page{
 .body-title{
   height: 400rpx;
   overflow: hidden;
-  background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574932730878&di=ea6e957a44385c520c5543a15886888f&imgtype=0&src=http%3A%2F%2Fpic.616pic.com%2Fbg_w1180%2F00%2F10%2F24%2Fouz8NlpXtD.jpg');
+  background-image: url('https://m.bjwinstech.com:8089/img/timg.jpg');
   background-size:100% 100%;
 }
 .body-text{

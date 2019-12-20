@@ -1,16 +1,14 @@
 <!--page/component/user/member/member.wxml-->
 <!-- 会员页面 -->
 <view class="main">
-    <view class="header">
-        <text class="nickname">ID：</text>
-        <text class="about">{{userInfo.rId}}</text>
-    </view>
-    <view class="header">
-        <text class="nickname">用户名：</text>
-        <text class="about">{{userInfo.uName}}</text>
-    </view>
-    <view class="header">
-        <text class="nickname">密码：</text>
-        <text class="about">{{userInfo.uPwd}}</text>
+    <view class="center-body">
+      <view wx:if="{{state!=null}}" class="title-all">
+        <text>姓名：{{userInfo.referrer}}</text>
+        <text>
+        类型：{{state}}</text>
+      </view>
+      <view wx:else class="title-all">
+        <text>游客</text>
+      </view>
     </view>
 </view>

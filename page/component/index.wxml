@@ -13,7 +13,7 @@
         <view class="select-title"><text>会员频道</text></view>
         <view class="select-top">
             <view class="select-top-small">
-                <navigator url="/page/component/user/club/club">
+                <navigator url="/page/component/user/home/home">
                     <image src="/image/home/index/huiyuan_1.png"></image>
                     <text>俱乐部介绍</text>
                 </navigator>
@@ -26,14 +26,14 @@
             </view>
             <view class="select-top-small">
                 <navigator url="/page/component/user/file/file">
-                    <image src="/image/home/index/daxue.png"></image>
-                    <text>University资料</text>
+                    <image src="/image/home/index/wenjianziliao.png"></image>
+                    <text>会议课件</text>
                 </navigator>
             </view>
             <view class="select-top-small">
-                <navigator url="/page/component/user/file/file">
-                    <image src="/image/home/index/wenjianziliao.png"></image>
-                    <text>会议课件</text>
+                <navigator url="/page/component/user/home/home">
+                    <image src="/image/home/index/daxue.png"></image>
+                    <text>关于我们</text>
                 </navigator>
             </view>
         </view>
@@ -45,9 +45,9 @@
         </view>
     
         <view wx:for="{{headInfo}}" wx:key="item" class="newest-table">
-          <navigator bindtap="navClick" url="/">
+          <navigator bindtap="navClick" url="/" id="{{item.id}}">
             <view class="newest-table-img">
-              <image src="{{item.nImg}}"></image>
+              <image src="{{imgUrl+item.nImg}}"></image>
             </view>
             <view class="newest-table-box">
               <view class="box-title">{{item.nTitle}}</view>

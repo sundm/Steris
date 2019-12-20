@@ -18,19 +18,15 @@ Page({
         wx.login({
           success: function (res) {
             if (res.code) {
-              var d = that.globalData;//这里存储了appid、secret、token串  
-              var l = 'https://api.weixin.qq.com/sns/jscode2session?appid=' + d.appid + '&secret=' + d.secret + '&js_code=' + res.code + '&grant_type=authorization_code';
               wx.request({
-                url: l,
+                url: app.globalData.reqUrl + 'wxAuth/callBack?code=' + res.code,
                 data: {},
-                method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
-                // header: {}, // 设置请求的 header  
+                method: 'GET',
                 success: function (res) {
                   var obj = {};
                   obj.openid = res.data.openid;
                   obj.expires_in = Date(Date.now() + res.data.expires_in);
-                  console.log(obj);
-                  wx.setStorageSync('user', obj);//存储openid  
+                  wx.setStorageSync('user', obj);//存储openid   
                 }
               });
             } else {
@@ -41,8 +37,8 @@ Page({
       }
       this.userAuth();
       wx.setStorageSync('userInfo', res.detail.userInfo);
-      wx.switchTab({
-        url: '/page/component/index'
+      wx.redirectTo({
+        url: '/page/component/msg/msg'
       })
     } else {
       wx.redirectTo({

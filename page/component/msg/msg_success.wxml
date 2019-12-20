@@ -4,7 +4,7 @@
             <icon type="success" size="64"></icon>
         </view>
         <view class="weui-msg__text-area">
-            <view class="weui-msg__title">提交成功</view>
+            <view class="weui-msg__title">您已提交申请信息</view>
             <view class="weui-msg__desc">我们已收到您的申请，请耐心等待工作人员审核。</view>
         </view>
         <view class="weui-msg__opr-area">
@@ -18,7 +18,6 @@
                 <!-- <view class="weui-footer__links">
                     <navigator url="" class="weui-footer__link">底部链接文本</navigator>
                 </view> -->
-                <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view>
             </view>
         </view>
     </view>

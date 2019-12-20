@@ -2,20 +2,36 @@
 const app = getApp()
 Page({
     data: {
-        category: [
-            {name:'设备',id:'shebei'},
-			{name:'耗材',id:'haocai'}
-        ],
+        category: [],
         detail:[
 			{
-				id:'shebei',
-				banner:'/image/img/home1.jpg',
-				cate:'设备',
-				detail:[
-					{thumb:'/image/img/home1.jpg',name:'迈科绝缘检测仪'}
-				]
+            id: 's3',
+            banner: '/image/img/home1.jpg',
+            cate: '设备类',
+            detail: [
+              { thumb: '/image/img/home1.jpg', name: '迈科绝缘检测仪', url: 'datails/datails' },
+              { thumb: '/image/img/home2.jpg', name: '迈科MM513手持式绝缘检测仪', url: '/' },
+              { thumb: '/image/img/home2.jpg', name: '赢祥气体监测仪', url: '/' }
+            ]
 			},
-			{id:'haocai',banner:'/image/img/home2.jpg',cate:'耗材'}
+			{
+        id: 's4', banner: '/image/img/home2.jpg', cate: '耗材类',
+        detail: [
+          { thumb: '/image/img/home7.png', name: '微科器械预处理凝胶', url: '/' },
+          { thumb: '/image/img/home8.png', name: '微科酶清洗剂', url: '/' },
+          { thumb: '/image/img/home9.png', name: '微科碱性清洗剂', url: '/' },
+          { thumb: '/image/img/home10.png', name: '微科器械浓缩润滑剂', url: '/' },
+          { thumb: '/image/img/home11.png', name: '微科浓缩器械除锈剂', url: '/' },
+          { thumb: '/image/img/home6.png', name: '微科除锈湿巾', url: '/' },
+          { thumb: '/image/img/home5.png', name: '微科残胶去除剂', url: '/' }
+        ]
+      },
+      {
+        id: 's5', banner: '/image/img/home2.jpg', cate: '信息类',
+        detail: [
+          { thumb: '/image/img/home4.png', name: '消毒供应室信息化系统', url: '/' }
+        ]
+      }
 		],
         curIndex: 0,
         isScroll: false,
@@ -25,7 +41,19 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      
+      var self = this;
+      wx.request({
+        url: app.globalData.reqUrl + 'pro/getProType',
+        method: 'post',
+        data: {state:1},
+        header: { 'content-type': 'application/json' },
+        success(res) {
+          console.log(res.data.proTypes)
+          self.setData({
+            category: res.data.proTypes
+          })
+        }
+      })
     },
     onReady(){
         var self = this;

@@ -34,8 +34,6 @@ App({
   },
   globalData: {
     hasLogin: false,
-    reqUrl:"http://www.yuchenz.xyz:8080/",
-    appid: 'wx4eb53c2821e00f96',
-    secret: 'ac3517c7a061e00591cdafd8225f492c'
+    reqUrl:"https://m.bjwinstech.com:8089/"
   }
 })

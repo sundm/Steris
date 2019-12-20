@@ -2,14 +2,11 @@
     <view class="header">
         <image src="{{thumb}}" class="thumb"></image>
         <text class="nickname">{{nickname}}</text>
-        <text class="about">关于我们</text>
+        <navigator class="about" url="/page/component/user/home/home">关于我们</navigator>
     </view>
     <view class="address-box">
         <view class="address-manage">
-            <navigator url="/">个人信息</navigator>
-        </view>
-        <view class="address-manage">
-            <navigator url="/page/component/user/vip/vip">我的会员卡</navigator>
+            <navigator url="/page/component/user/member/member">个人信息</navigator>
         </view>
     </view>
 </view>

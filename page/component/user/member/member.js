@@ -7,51 +7,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: []
+    userInfo: {},
+    state:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var self = this;
-    /**
-     * 发起请求获取用户信息
-     */
-    wx.request({
-      url: app.globalData.reqUrl + 'user/getUser',
-      method: 'post',
-      data: {
-        id: 1
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        self.setData({
-          userInfo: res.data.userInfo
-        })
-        console.log(res.data);
-      }
-    }),
-      wx.request({
-        url: app.globalData.reqUrl + 'user/addUser',
-        method: 'post',
-        data: {
-          userInfo: {
-            uName: '临渊羡鱼',
-            uPwd: 'linyuan123',
-            rId: 1,
-            state: 0
-          }
-        },
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        success(res) {
-          console.log(res.data);
-        }
+    var users = wx.getStorageSync('users');
+    if(users.state==1){
+      this.setData({
+        state: "待审核"
       })
+    } else if (users.state == 2){
+      this.setData({
+        state: "正式会员"
+      })
+    }
+    this.setData({
+      userInfo: users
+    })
   },
 
   /**

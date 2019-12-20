@@ -1,26 +1,11 @@
-// page/component/user/vip/vip.js
+// page/component/user/home/home.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    vipCard:[
-      {
-        title:'一级会员',
-        url:'/image/home/index/canpinhuihuiyuanv1.png',
-        text:'下载数量30次'
-      }, {
-        title: '二级会员',
-        url: '/image/home/index/canpinhuihuiyuanv2.png',
-        text: '下载数量30次'
-      }, {
-        title: '三级会员',
-        url: '/image/home/index/canpinhuihuiyuanv3.png',
-        text: '下载数量40次'
-      }
-    ],
-    showIndex: 0
+
   },
 
   /**
@@ -71,18 +56,11 @@ Page({
   onReachBottom: function () {
 
   },
+
   /**
-   * 展开会员信息
+   * 用户点击右上角分享
    */
-  navClick: function (e) {
-    if (e.currentTarget.dataset.index != this.data.showIndex) {
-      this.setData({
-        showIndex: e.currentTarget.dataset.index
-      })
-    } else {
-      this.setData({
-        showIndex: 0
-      })
-    }
+  onShareAppMessage: function () {
+
   }
 })

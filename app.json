@@ -17,7 +17,8 @@
     "page/component/user/news/news",
     "page/component/auth/auth-no",
     "page/component/user/club/club",
-    "page/component/user/vip/vip"
+    "page/component/user/vip/vip",
+    "page/component/user/home/home"
   ],
   "window": {
     "navigationBarTextStyle": "white",

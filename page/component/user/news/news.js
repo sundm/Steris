@@ -12,8 +12,10 @@ Page({
     imgUrl:"/image/home/huodong.png",
     text:"下载注意：效果图仅展示用，下载包含源文件但无效果图及附属素材。使用之前请 仔细检查文字及其他文件内容，文件问题可申请退款，但网站不对因此造成的制作 费用等其他损失负责，如有疑问请先联系网站客服进行了解。",
     newsInfo:[],
+    headInfo: {},
     imgType:"1",
-    textType:"2"
+    textType: "2",
+    imgUrl: app.globalData.reqUrl
   },
 
   /**
@@ -27,12 +29,13 @@ Page({
     wx.request({
       url: app.globalData.reqUrl + 'news/getNews',
       method: 'post',
-      data: { headId: 1},
+      data: { headId: options.hId},
       header: { 'content-type': 'application/json' },
       success(res) {
         console.log(res.data.newsInfo)
         self.setData({
-          newsInfo: res.data.newsInfo
+          newsInfo: res.data.newsInfo,
+          headInfo: res.data.head
         })
       }
     })

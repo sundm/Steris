@@ -71,10 +71,10 @@ swiper-item image {
   background-color: white;
   border-radius: 8px;
   height: 185rpx;
-  margin: 15rpx 10rpx 10rpx 15rpx;
+  margin: 15rpx 15rpx 10rpx 15rpx;
 }
 .newest-table-img{
-  border-radius: 8px;
+  border-radius: 15px;
   height: 175rpx;
   width: 24%;
   float: left;

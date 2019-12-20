@@ -1,17 +1,17 @@
 <!--page/component/user/news/news.wxml-->
-
+<wxs module="filter" src="./filter.wxs"></wxs>
 <view class="main">
   <view class="title">
     <view class="title-top">
-      <text>{{title}}</text>
+      <text>{{headInfo.nTitle}}</text>
     </view>
     <view class="title-time">
-      <text>-- {{time}} --</text>
+      <text>-- {{filter.getDateTime(headInfo.createTime)}} --</text>
     </view>
   </view>
   <view wx:for="{{newsInfo}}" wx:key="item" class="body">
     <view wx:if="{{item.type=='1'}}" class="body-img">
-        <image src="{{item.img}}"></image>
+        <image src="{{imgUrl+item.img}}"></image>
     </view>
     <view wx:else class="body-text">
       <text>{{item.content}}</text>

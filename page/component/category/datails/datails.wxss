@@ -9,9 +9,9 @@
     border-bottom: 30rpx solid #ededed;
 }
 .goods-box .goods-thumb{
-    width: 300rpx;
-    height: 300rpx;
-    margin: 35rpx 0 125rpx;
+    width: 94%;
+    height: 400rpx;
+    margin: 25rpx 3% 25rpx 3%;
 }
 
 .to-carts-icon{
@@ -130,7 +130,7 @@
 }
 .goods-tab-nav{
     display: inline-block;
-    width: 33.33%;
+    width: 49.99%;
     height: 90rpx;
     line-height: 90rpx;
     border-bottom: 1rpx solid #ededed;

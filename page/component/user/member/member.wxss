@@ -1,1 +1,13 @@
 /* page/component/user/member/member.wxss */
+.title-all{
+  margin-top: 250rpx;
+  text-align: center;
+  color: white;
+}
+.center-body{
+  height: 400rpx;
+  overflow: hidden;
+  background-image: url('https://m.bjwinstech.com:8089/img/timg.jpg');
+  background-size:100% 100%;
+  margin: 15rpx 2% 0% 2%;
+}
