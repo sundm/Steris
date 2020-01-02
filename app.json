@@ -18,11 +18,13 @@
     "page/component/auth/auth-no",
     "page/component/user/club/club",
     "page/component/user/vip/vip",
+    "page/component/test/category",
     "page/component/user/home/home"
+    
   ],
   "window": {
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "WIN家",
+    "navigationBarTitleText": "WINHOME",
     "navigationBarBackgroundColor": "#AB956D",
     "backgroundColor": "#eeeeee",
     "enablePullDownRefresh": true

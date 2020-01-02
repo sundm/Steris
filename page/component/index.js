@@ -5,7 +5,6 @@ Page({
   data: {
     imgUrls: [
       '/image/tu2.jpg',
-      '/image/tu2.jpg',
       '/image/tu2.jpg'
     ],
     indicatorDots: false,
@@ -29,6 +28,7 @@ Page({
   onPullDownRefresh: function () {
     this.getNews();
     this.userAuth();
+    wx.stopPullDownRefresh();  //停止下拉刷新
   },
   /**
    * 判断是否登录
@@ -59,7 +59,7 @@ Page({
     wx.request({
       url: app.globalData.reqUrl + 'news/getHead',
       method: 'post',
-      data: {},
+      data: {state:'1'},
       header: { 'content-type': 'application/json' },
       success(res) {
         console.log(res.data.headInfo)

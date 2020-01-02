@@ -12,7 +12,9 @@
         </view>
       </navigator>
       <view class="body-text" wx:if="{{showIndex == index + 1}}">
-        <text>{{item.text}}</text>
+        <view  wx:for="{{item.text}}" wx:key="{{i}}" wx:for-item="text">
+          <text>{{text}}</text>
+        </view>
       </view>
     </view>
   </view>

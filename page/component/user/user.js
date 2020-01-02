@@ -10,18 +10,14 @@ Page({
     })
   },
   onLoad(){
-    var self = this;
-    /**
-     * 获取用户信息
-     */
-    wx.getUserInfo({
-      success: function(res){
-        self.setData({
-          thumb: res.userInfo.avatarUrl,
-          nickname: res.userInfo.nickName
-        })
-      }
-    })
+    this.getUser();
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    this.getUser();
+    wx.stopPullDownRefresh();  //停止下拉刷新
   },
   onShow(){
     var self = this;
@@ -34,6 +30,20 @@ Page({
         self.setData({
           hasAddress: true,
           address: res.data
+        })
+      }
+    })
+  },
+  getUser(){
+    var self = this;
+    /**
+     * 获取用户信息
+     */
+    wx.getUserInfo({
+      success: function (res) {
+        self.setData({
+          thumb: res.userInfo.avatarUrl,
+          nickname: res.userInfo.nickName
         })
       }
     })

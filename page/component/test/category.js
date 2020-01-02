@@ -2,9 +2,8 @@
 const app = getApp()
 Page({
     data: {
-      topNum: 0,
-      category: [],
-      detail:[
+        category: [],
+        detail:[
 			{
             id: 's3',
             banner: '/image/img/home1.jpg',
@@ -93,10 +92,6 @@ Page({
           })
         }
       })
-    },
-  returnTop: function () {
-    this.setData({
-      topNum: this.data.topNum = 0
-    })
-  } 
+    }
+    
 })

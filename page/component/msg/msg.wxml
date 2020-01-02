@@ -11,14 +11,7 @@
   </view>
 	<view class="weui-cells weui-cells_after-title">
     <form bindsubmit="formSubmit" bindreset="formReset">
-      <view class="weui-cell  weui-cell_vcode">
-          <view class="weui-cell__hd">
-             
-          </view>
-          <view class="weui-cell__bd">
-              
-          </view>
-      </view>
+      <view class="weui-cell  weui-cell_vcode"></view>
       <view class="weui-cell  weui-cell_vcode">
           <view class="weui-cell__hd">
               <view class="weui-label">姓名</view>
@@ -37,7 +30,7 @@
       </view>
       <view class="weui-cell ">
           <view class="weui-cell__hd">
-              <view class="weui-label">类别</view>
+              <view class="weui-label">我是</view>
           </view>
           <view class="weui-cell__bd">
               <picker bindchange="bindCasPickerChange" value="{{casIndex1}}" range="{{casArray}}">
@@ -58,16 +51,8 @@
       
       <view class="page__hd">
           <button class="primary" formType="submit">加入WIN家</button>
-          <button class="weui-btn"bindtap="goHome">暂不加入</button>
+          <button class="btn_b weui-btn"bindtap="goHome">暂不加入</button>
       </view>
     </form>
   </view>
-    <!-- <view class="page__bd">
-        <view class="weui-btn-area">
-            <button class="primary" type="default" bindtap="openSuccess">成功提示页</button>
-            <button class="weui-btn" type="default" bindtap="openFail">失败提示页</button>
-            <button class="weui-btn" type="default" bindtap="openText">无图标提示页</button>
-            <button class="weui-btn" type="default" bindtap="openTextPrimary">无图标提示页</button>
-        </view>
-    </view> -->
 </view>

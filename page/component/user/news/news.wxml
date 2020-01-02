@@ -1,6 +1,11 @@
 <!--page/component/user/news/news.wxml-->
-<wxs module="filter" src="./filter.wxs"></wxs>
-<view class="main">
+<import src="/wxParse/wxParse.wxml"/>
+<view class="offer-detail">
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+<!-- <wxs module="filter" src="./filter.wxs"></wxs> -->
+<!-- <web-view src="{{htmlUrl}}"></web-view> -->
+<!-- <view class="main">
   <view class="title">
     <view class="title-top">
       <text>{{headInfo.nTitle}}</text>
@@ -18,6 +23,6 @@
     </view>
   </view>
   <view class="foot">
-    <!-- <text>-------   我也是有底线的   -------</text> -->
+    <text>-------   我也是有底线的   -------</text>
   </view>
-</view>
+</view> -->

@@ -1,6 +1,9 @@
 page{
     background-color: #FFFFFF;
 }
+.page{
+  margin: -6% 5% 0% 5%;
+}
 .weui-form__desc{
   margin-bottom: 30rpx;
 }
@@ -11,4 +14,10 @@ page{
     width: 200rpx;
     height: 200rpx;
     border-radius: 50%;
+}
+.weui-cell{
+  border: none;
+}
+.btn_b{
+  margin-top:10rpx; 
 }

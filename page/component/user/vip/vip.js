@@ -9,15 +9,15 @@ Page({
       {
         title:'一级会员',
         url:'/image/home/index/canpinhuihuiyuanv1.png',
-        text:'下载数量30次'
+        text: ['1、文件下载数量10次']
       }, {
         title: '二级会员',
         url: '/image/home/index/canpinhuihuiyuanv2.png',
-        text: '下载数量30次'
+        text: ['1、文件下载数量20次','2、部分产品享受0.99折优惠']
       }, {
         title: '三级会员',
         url: '/image/home/index/canpinhuihuiyuanv3.png',
-        text: '下载数量40次'
+        text: ['1、文件下载数量30次', '2、部分产品享受0.95折优惠','3、新产品优先采购权']
       }
     ],
     showIndex: 0

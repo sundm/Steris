@@ -3,7 +3,7 @@ page{
   background-color:rgb(241, 248, 248);
 }
 .main{
-  margin-bottom: 20rpx;
+  margin-bottom: 50rpx;
 }
 .top{
   margin-top:15rpx; 
@@ -38,5 +38,5 @@ page{
   margin-top: 10rpx;
   background-color: white;
   padding: 0 3% 0 3%;
-  font-size: 25rpx;
+  font-size: 30rpx;
 }

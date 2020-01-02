@@ -1,4 +1,5 @@
 @import 'page/common/weui.wxss';
+@import "wxParse/wxParse.wxss";
 page {
   background-color: #fbf9fe;
   height: 100%;

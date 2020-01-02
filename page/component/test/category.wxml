@@ -1,4 +1,8 @@
 <view class="main">
+  <view class='top' catchtap='returnTop'>
+    <view>▲</view>
+    <view>顶部</view>
+  </view>
     <view class="categroy-left">
         <view wx:for="{{category}}" wx:key="index" data-id="s{{item.id}}" data-index="{{index}}"
             bindtap="switchTab"

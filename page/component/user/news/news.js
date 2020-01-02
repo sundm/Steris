@@ -1,6 +1,7 @@
 //获取应用实例
 const app = getApp()
 // page/component/user/news/news.js
+var WxParse = require('../../../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -15,6 +16,8 @@ Page({
     headInfo: {},
     imgType:"1",
     textType: "2",
+    htmlUrl:"",
+    htmlData:"",
     imgUrl: app.globalData.reqUrl
   },
 
@@ -23,6 +26,7 @@ Page({
    */
   onLoad: function (options) {
     var self = this;
+    
     /**
      * 发起请求获取活动信息
      */
@@ -32,13 +36,18 @@ Page({
       data: { headId: options.hId},
       header: { 'content-type': 'application/json' },
       success(res) {
-        console.log(res.data.newsInfo)
+        console.log(res.data.html)
+        var htmlTpl = res.data.html;
+        WxParse.wxParse('article', 'html', htmlTpl, self, 5);
         self.setData({
           newsInfo: res.data.newsInfo,
-          headInfo: res.data.head
+          headInfo: res.data.head,
+          htmlData:res.data.html,
+          htmlUrl:app.globalData.reqUrl+res.data.head.detail
         })
       }
     })
+    
   },
 
   /**
