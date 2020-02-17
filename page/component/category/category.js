@@ -43,12 +43,14 @@ Page({
      */
     onLoad: function (options) {
       this.getPro();
+      this.getProduct();
     },
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
     scrolltouppe: function () {
       this.getPro();
+      this.getProduct();
     },
       onReady(){
           var self = this;
@@ -92,6 +94,26 @@ Page({
             category: res.data.proTypes
           })
         }
+      })
+    },
+    getProduct(){
+    var self = this;
+      wx.request({
+        url: app.globalData.reqUrl + 'pro/getProductList',
+        method: 'post',
+        data: {},
+        header: { 'content-type': 'application/json' },
+        success(res) {
+          console.log(res.data.detail)
+          self.setData({
+            detail: res.data.detail
+          })
+        }
+      })
+    },
+    openPage: function (e) {
+      wx.navigateTo({
+        url: '/page/component/category/datails/datails?id=' + e.currentTarget.id
       })
     },
   returnTop: function () {

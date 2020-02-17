@@ -3,7 +3,9 @@ const app = getApp()
 Page({
   data:{
     casIndex: 0,
+    zhiIndex:0,
     casArray: ['请选择', '代理商', '医护人员', '销售人员'],
+    zhiArray:[],
     thumb: '',
     nickname: ''
   },

@@ -1,44 +1,14 @@
 // page/component/user/file/file.js
+//获取应用实例
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    fileData:[
-      {
-        type:'Excel',
-        data: [
-          { downUrl: '', name: '日期表', imgUrl: '/image/home/excel.png' },
-          { downUrl: '', name: '日期表2', imgUrl: '/image/home/excel.png' },
-          { downUrl: '', name: '日期表2', imgUrl: '/image/home/excel.png' }
-        ]
-      },
-      {
-        type: 'Word',
-        data: [
-          { downUrl: '', name: 'Word文件', imgUrl: '/image/home/word.png' },
-          { downUrl: '', name: 'Word文件', imgUrl: '/image/home/word.png' },
-          { downUrl: '', name: 'Word文件', imgUrl: '/image/home/word.png' }
-        ]
-      },
-      {
-        type: 'PPT',
-        data: [
-          { downUrl: '', name: 'PPT文件', imgUrl: '/image/home/ppt.png' },
-          { downUrl: '', name: 'PPT文件', imgUrl: '/image/home/ppt.png' },
-          { downUrl: '', name: 'PPT文件', imgUrl: '/image/home/ppt.png' }
-        ]
-      },
-      {
-        type: 'PDF',
-        data: [
-          { downUrl: '', name: 'PDF文件', imgUrl: '/image/home/pdf.png' },
-          { downUrl: '', name: 'PDF文件', imgUrl: '/image/home/pdf.png' },
-          { downUrl: '', name: 'PDF文件', imgUrl: '/image/home/pdf.png' }
-        ]
-      }
-    ],
+    fileData:[],
+    fileInfo:[],
     showIndex: 0
   },
   /**
@@ -89,21 +59,55 @@ Page({
     })
   },
   openData: function (e) {
+    var self = this;
+    console.log(e.currentTarget.id)
+    wx.request({
+      url: app.globalData.reqUrl + 'files/getFile',
+      method: 'post',
+      data: {type:e.currentTarget.id,state:'1'},
+      header: { 'content-type': 'application/json' },
+      success(res) {
+        console.log(res.data.fileInfo)
+        self.setData({
+          fileInfo: res.data.fileInfo
+        })
+      }
+    })
     if (e.currentTarget.dataset.index != this.data.showIndex) {
-      this.setData({
+      self.setData({
         showIndex: e.currentTarget.dataset.index
       })
     } else {
-      this.setData({
+      self.setData({
         showIndex: 0
       })
     }
+  },
+  openPage: function (e) {
+    wx.navigateTo({
+      url: '/page/component/user/file/datails/datails?id=' + e.currentTarget.id
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var self = this;
+    wx.request({
+      url: app.globalData.reqUrl + 'files/getType',
+      method: 'post',
+      data: {
+        type:options.id,
+        state:'1'
+      },
+      header: { 'content-type': 'application/json' },
+      success(res) {
+        console.log(res.data.typeInfo)
+        self.setData({
+          fileData: res.data.typeInfo
+        })
+      }
+    })
   },
 
   /**

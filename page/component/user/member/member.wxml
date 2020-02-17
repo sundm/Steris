@@ -1,14 +1,21 @@
 <!--page/component/user/member/member.wxml-->
 <!-- 会员页面 -->
 <view class="main">
-    <view class="center-body">
-      <view wx:if="{{state!=null}}" class="title-all">
-        <text>姓名：{{userInfo.referrer}}</text>
-        <text>
-        类型：{{state}}</text>
-      </view>
-      <view wx:else class="title-all">
-        <text>游客</text>
-      </view>
+    <view class="weui-form">
+        <view class="weui-form__text-area">
+            <view class="weui-form__title">
+            <image src="{{thumb}}" class="thumb"></image>
+            </view>
+            <view class="weui-form__desc">
+            <text class="nickname">{{nickname}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="header">
+        <text class="nickname">我的状态：</text>
+        <text class="about">{{state}}</text>
+        <view wx:if="{{state=='加入会员'}}">
+            <button class="primary" bindtap="goHome">加入橙悦荟</button>
+        </view>
     </view>
 </view>

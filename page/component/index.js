@@ -37,19 +37,19 @@ Page({
     this.userAuth();
     var usertype = wx.getStorageSync("usertype");
     var hId = options.currentTarget.id;
-    if (usertype == "1") {
-      wx.navigateTo({
-        url: '/page/component/msg/msg_success'
-      })
-    } else if (usertype == "2") {
+    // if (usertype == "1") {
+    //   wx.navigateTo({
+    //     url: '/page/component/msg/msg_success'
+    //   })
+    // } else if (usertype == "2") {
       wx.navigateTo({
         url: '/page/component/user/news/news?hId=' + hId
       })
-    } else {
-      wx.navigateTo({
-        url: '/page/component/msg/msg'
-      })
-    }
+    // } else {
+    //   wx.navigateTo({
+    //     url: '/page/component/msg/msg'
+    //   })
+    // }
   },
   /**
    * 获取活动信息

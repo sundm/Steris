@@ -1,13 +1,19 @@
 /* page/component/user/member/member.wxss */
-.title-all{
-  margin-top: 250rpx;
-  text-align: center;
-  color: white;
-}
-.center-body{
-  height: 400rpx;
-  overflow: hidden;
-  background-image: url('https://m.bjwinstech.com:8089/img/timg.jpg');
-  background-size:100% 100%;
-  margin: 15rpx 2% 0% 2%;
-}
+.weui-form__desc{
+  margin-bottom: 30rpx;
+  }
+  .weui-cell__bd job{
+  padding-left:30rpx; 
+  }
+  .thumb{
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+  }
+  .header{
+    width: 49%;
+    padding:20rpx 25% 0 25%;
+    font-weight: bold;
+    align-items: center;
+    text-align: center;
+  }

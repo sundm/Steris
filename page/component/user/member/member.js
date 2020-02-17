@@ -7,26 +7,89 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
-    state:''
+    thumb: '',
+    state: '',
+    nickname: '',
+    userInfo: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var users = wx.getStorageSync('users');
-    if(users.state==1){
-      this.setData({
-        state: "待审核"
+    var self = this;
+    self.userAuth();
+    var usertype = wx.getStorageSync("usertype");
+    if(usertype == "1"){
+      self.setData({
+        state: "审核中"
       })
-    } else if (users.state == 2){
-      this.setData({
+    } else if(usertype == "2") {
+      self.setData({
         state: "正式会员"
       })
+    }else{
+      self.setData({
+        state: "加入会员"
+      })
     }
-    this.setData({
-      userInfo: users
+    /**
+     * 获取用户信息
+     */
+    wx.getUserInfo({
+      success: function (res) {
+        self.setData({
+          thumb: res.userInfo.avatarUrl,
+          nickname: res.userInfo.nickName
+        })
+      }
+    })
+    /**
+     * 发起请求获取用户信息
+     */
+    wx.request({
+      url: app.globalData.reqUrl + 'user/getUser',
+      method: 'post',
+      data: {
+        id: 1
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        self.setData({
+          userInfo: res.data.userInfo
+        })
+        console.log(res.data);
+      }
+    })
+  },
+  goHome:function(){
+    wx.navigateTo({
+          url: '/page/component/msg/msg'
+      })
+  },
+  /**
+   * 发起请求获取用户状态
+  */
+  userAuth: function () {
+    var user = wx.getStorageSync('user');
+    wx.request({
+      url: app.globalData.reqUrl + 'user/auth',
+      method: 'post',
+      data: {
+        openId: user.openid
+      },
+      header: { 'content-type': 'application/json' },
+      success(res) {
+        if (res.data.code == "9000") {
+          wx.setStorageSync("usertype", res.data.state)
+          return "1";
+        } else {
+          wx.setStorageSync("usertype", "0")
+        }
+
+      }
     })
   },
 

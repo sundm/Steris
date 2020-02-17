@@ -1,0 +1,29 @@
+/* page/component/user/file/datails/datails.wxss */
+page{
+  background-color:rgb(241, 248, 248);
+}
+.body{
+  width: 100%;
+  text-align: center;
+  padding-bottom: 30rpx;
+  border-bottom: black solid 2rpx;
+}
+.body image{
+  width: 300rpx;
+  height: 300rpx;
+}
+.primary{
+  margin-top: 15rpx;
+  width: 40%;
+}
+.foot{
+  margin-right: 3%;
+  margin-left: 3%;
+}
+.title{
+  font-size: 45rpx;
+  font-weight: bold;
+}
+.concent{
+  font-size: 28rpx;
+}

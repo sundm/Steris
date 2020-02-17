@@ -1,19 +1,20 @@
 <!--page/component/category/datails/datails.wxml-->
 <view class="main">
     <view class="goods-box">
-        <image src="{{goods.image}}" class="goods-thumb"></image>
+        <image src="{{goods.img}}" class="goods-thumb"></image>
 
         <image wx:if="{{show}}" src="/image/cart1.png" class="to-carts-icon"></image>
         
-        <view class="goods-title">{{goods.title}}</view>
+        <view class="goods-title">{{goods.name}}</view>
         <view class="goods-price">￥ {{goods.price}}</view>
     </view>
     <view class="goods-tab-box">
         <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">产品详情</view>
-        <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">售后保障</view>
+        <!-- <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">售后保障</view> -->
         <view class="goods-content">
-            <view wx:if="{{curIndex === 0}}">{{goods.detail}}</view>
-            <view wx:if="{{curIndex === 1}}">{{goods.service}}</view>
+            <view wx:if="{{curIndex === 0}}">{{goods.intro}}</view>
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+            <!-- <view wx:if="{{curIndex === 1}}">{{goods.service}}</view> -->
         </view>
     </view>
 </view>

@@ -1,4 +1,7 @@
 // page/component/category/datails/datails.js
+//获取应用实例
+const app = getApp();
+var WxParse = require('../../../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -22,42 +25,6 @@ Page({
     show: false,
     scaleCart: false
   },
-
-  /**
-   * Start
-   */
-  addCount() {
-    let num = this.data.num;
-    num++;
-    this.setData({
-      num: num
-    })
-  },
-
-  addToCart() {
-    const self = this;
-    const num = this.data.num;
-    let total = this.data.totalNum;
-
-    self.setData({
-      show: true
-    })
-    setTimeout(function () {
-      self.setData({
-        show: false,
-        scaleCart: true
-      })
-      setTimeout(function () {
-        self.setData({
-          scaleCart: false,
-          hasCarts: true,
-          totalNum: num + total
-        })
-      }, 200)
-    }, 300)
-
-  },
-
   bindTap(e) {
     const index = parseInt(e.currentTarget.dataset.index);
     this.setData({
@@ -72,9 +39,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var self = this;
+    console.log(options.id);
+    wx.request({
+      url: app.globalData.reqUrl + 'pro/getPro',
+      method: 'post',
+      data: {id:options.id},
+      header: { 'content-type': 'application/json' },
+      success(res) {
+        console.log(res.data)
+        var htmlTpl = res.data.product.intro;
+        WxParse.wxParse('article', 'html', htmlTpl, self, 5);
+        self.setData({
+          goods: res.data.product
+        })
+      }
+    })
   },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

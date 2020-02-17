@@ -36,11 +36,17 @@ Page({
           }
         });
       }
-      this.userAuth();
-      wx.setStorageSync('userInfo', res.detail.userInfo),
-      wx.redirectTo({
-        url: '/page/component/msg/msg'
-      })
+      var usertype = this.userAuth();
+      wx.setStorageSync('userInfo', res.detail.userInfo);
+      if (usertype == "1") {
+        wx.redirectTo({
+          url: '/page/component/msg/msg_success'
+        })
+      } else {
+        wx.redirectTo({
+          url: '/page/component/msg/msg'
+        })
+      }
     } else {
       wx.redirectTo({
         url: '/page/component/auth/auth-no'
@@ -122,6 +128,7 @@ Page({
       success(res) {
         if (res.data.code == "9000") {
           wx.setStorageSync("usertype", res.data.state)
+          return "1";
         } else {
           wx.setStorageSync("usertype", "0")
         }

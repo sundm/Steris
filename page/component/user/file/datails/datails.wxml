@@ -1,0 +1,14 @@
+<!--page/component/user/file/datails/datails.wxml-->
+<view class="main">
+  <view class="body">
+    <view><image src="/image/home/excel.png"></image></view>
+    <text>{{files.name}}</text>
+    <button class="primary" bindtap="getDown">确认下载{{progress}}</button>
+  </view>
+  <view class="foot">
+    <view class="title">
+      内容概览
+    </view>
+    <view class="concent">{{files.concent}}</view>
+  </view>
+</view>

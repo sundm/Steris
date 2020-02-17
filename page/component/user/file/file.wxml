@@ -1,15 +1,18 @@
 <!--page/component/user/file/file.wxml-->
 <view class="main">
+  <view wx:if="{{fileData==''}}" class="kong">
+    暂无记录！
+  </view>
   <view class="top" wx:for="{{fileData}}" wx:key="{{index}}" >
-    <view class="top-title" data-index='{{index + 1}}' catchtap='openData'>
+    <view class="top-title" data-index='{{index + 1}}' catchtap='openData' id="{{item.id}}">
       <view class="top-title-image"><image src="/image/home/sanjiao.png"></image></view>
-      <text>{{item.type}}</text>
+      <text>{{item.name}}</text>
     </view>
     <view wx:if="{{showIndex == index + 1}}">
-      <view class="top-body" wx:for="{{item.data}}" wx:for-item="dd" wx:key="key">
-        <navigator class="top-body-table">
-          <view><image src="{{dd.imgUrl}}"></image></view>
-          <text>{{dd.name}}</text>
+      <view class="top-body" wx:for="{{fileInfo}}" wx:for-item="dd" wx:key="key">
+        <navigator class="top-body-table" id="{{dd.id}}" url="/" catchtap='openPage'>
+          <view><image src="/image/home/excel.png"></image></view>
+          <text class="name">{{dd.name}}</text>
         </navigator>
       </view>
     </view>
