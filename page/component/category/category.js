@@ -36,7 +36,8 @@ Page({
 		],
         curIndex: 0,
         isScroll: false,
-        toView: 'guowei'
+        toView: 'guowei',
+        imgUrl: app.globalData.reqUrl
   },
     /**
      * 生命周期函数--监听页面加载

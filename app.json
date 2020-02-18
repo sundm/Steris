@@ -1,13 +1,13 @@
 {
   "pages": [
     "page/component/auth/auth",
+    "page/component/msg/msg",
+    "page/component/msg/msg_success",
+    "page/component/msg/msg_fail",
     "page/component/index",
     "page/component/user/user",
     "page/component/category/category",
     "page/component/orders/orders",
-    "page/component/msg/msg",
-    "page/component/msg/msg_success",
-    "page/component/msg/msg_fail",
     "page/component/user/file/file",
     "page/component/user/member/member",
     "page/component/category/datails/datails",

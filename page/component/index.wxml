@@ -1,9 +1,16 @@
 <view class="main">
     <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true" class="swiper-top">
-        <block wx:for="{{imgUrls}}" wx:key="index">
-          <navigator>
+        <block  wx:if="{{imgUrls==''}}" wx:key="index">
+          <navigator bindtap="navClick" url="/" id="{{item.newsId}}">
             <swiper-item>
-                <image src="{{item}}" class="slide-image" width="100%"/>
+                <image src="/image/tu2.jpg" class="slide-image" width="100%"/>
+            </swiper-item>
+          </navigator>
+        </block>
+        <block wx:for="{{imgUrls}}" wx:key="index">
+          <navigator bindtap="navClick" url="/" id="{{item.newsId}}">
+            <swiper-item>
+                <image src="{{imgUrl+item.url}}" class="slide-image" width="100%"/>
             </swiper-item>
           </navigator>
         </block>

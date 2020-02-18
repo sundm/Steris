@@ -23,7 +23,8 @@ Page({
     hasCarts: false,
     curIndex: 0,
     show: false,
-    scaleCart: false
+    scaleCart: false,
+    imgUrl: app.globalData.reqUrl
   },
   bindTap(e) {
     const index = parseInt(e.currentTarget.dataset.index);
@@ -47,8 +48,8 @@ Page({
       data: {id:options.id},
       header: { 'content-type': 'application/json' },
       success(res) {
-        console.log(res.data)
-        var htmlTpl = res.data.product.intro;
+        console.log(res.data.product.afterSale)
+        var htmlTpl = res.data.product.afterSale;
         WxParse.wxParse('article', 'html', htmlTpl, self, 5);
         self.setData({
           goods: res.data.product

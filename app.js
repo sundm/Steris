@@ -34,7 +34,7 @@ App({
   },
   globalData: {
     hasLogin: false,
-    reqUrl:"http://localhost:8089/",
-    reUrl:"https://m.bjwinstech.com:8089/"
+    reUrl:"http://localhost:8089/",
+    reqUrl:"https://m.bjwinstech.com:8089/"
   }
 })

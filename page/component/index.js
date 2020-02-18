@@ -3,10 +3,7 @@ const app = getApp()
 
 Page({
   data: {
-    imgUrls: [
-      '/image/tu2.jpg',
-      '/image/tu2.jpg'
-    ],
+    imgUrls: [],
     indicatorDots: false,
     autoplay: false,
     interval: 3000,
@@ -16,6 +13,7 @@ Page({
   },
   onLoad: function (options) {
     this.getNews();
+    this.getHome();
     this.userAuth();
     var usertype = wx.getStorageSync("usertype");
     console.log("获取到userType：" + usertype);
@@ -65,6 +63,24 @@ Page({
         console.log(res.data.headInfo)
         self.setData({
           headInfo: res.data.headInfo
+        })
+      }
+    })
+  },
+  /**
+   * 获取大图信息
+   */
+  getHome: function (){
+    var self = this;
+    wx.request({
+      url: app.globalData.reqUrl + 'news/getHome',
+      method: 'post',
+      data: {},
+      header: { 'content-type': 'application/json' },
+      success(res) {
+        console.log(res.data.homes)
+        self.setData({
+          imgUrls: res.data.homes
         })
       }
     })
