@@ -50,6 +50,14 @@ Page({
     // }
   },
   /**
+   * 大图跳转
+   */
+  goPro: function (options) {
+    wx.navigateTo({
+      url: '/page/component/category/datails/datails?id=' + options.currentTarget.id
+    })
+  },
+  /**
    * 获取活动信息
    */
   getNews: function (){

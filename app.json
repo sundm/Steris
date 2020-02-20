@@ -43,12 +43,6 @@
         "iconPath": "image/22.png",
         "selectedIconPath": "image/21.png",
         "text": "产品分类"
-      },
-      {
-        "pagePath": "page/component/user/user",
-        "iconPath": "image/42.png",
-        "selectedIconPath": "image/41.png",
-        "text": "个人中心"
       }
     ]
   },

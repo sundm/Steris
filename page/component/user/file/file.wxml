@@ -9,8 +9,8 @@
       <text>{{item.name}}</text>
     </view>
     <view wx:if="{{showIndex == index + 1}}">
-      <view class="top-body" wx:for="{{fileInfo}}" wx:for-item="dd" wx:key="key">
-        <navigator class="top-body-table" id="{{dd.id}}" url="/" catchtap='openPage'>
+      <view class="top-body-table" wx:for="{{fileInfo}}" wx:for-item="dd" wx:key="key">
+        <navigator class="" id="{{dd.id}}" url="/" catchtap='openPage'>
           <view><image src="/image/home/excel.png"></image></view>
           <text class="name">{{dd.name}}</text>
         </navigator>

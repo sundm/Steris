@@ -15,7 +15,7 @@
         <text class="nickname">我的状态：</text>
         <text class="about">{{state}}</text>
         <view wx:if="{{state=='加入会员'}}">
-            <button class="primary" bindtap="goHome">加入橙悦荟</button>
+            <button class="primary" bindtap="goHome">加入会员</button>
         </view>
     </view>
 </view>

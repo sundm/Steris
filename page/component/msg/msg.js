@@ -4,7 +4,7 @@ Page({
   data:{
     casIndex: 0,
     zhiIndex:0,
-    casArray: ['请选择', '代理商', '医护人员', '销售人员'],
+    casArray: ['请选择', '代理商', '销售人员'],
     zhiArray:[],
     thumb: '',
     nickname: ''
@@ -27,32 +27,39 @@ Page({
   formSubmit: function (e) {
     var userInfo = wx.getStorageSync('userInfo');
     var user = wx.getStorageSync('user');
-    wx.request({
-      url: app.globalData.reqUrl + 'user/addUser',
-      method: 'post',
-      data: {
-        userInfo: userInfo,
-        openId: user.openid,
-        phone: e.detail.value.phone,
-        job: e.detail.value.job,
-        hosp: e.detail.value.hosp,
-        referrer: e.detail.value.people
-      },
-      header: { 'content-type': 'application/json' },
-      success(res) {
-        if (res.data.code == "9000") {
-          wx.setStorageSync("usertype", "1")
-          wx.navigateTo({
-            url: '/page/component/msg/msg_success'
-          })
-        } else {
-          wx.navigateTo({
-            url: '/page/component/msg/msg_fail'
-          })
+    if (e.detail.value.phone=="" || e.detail.value.job=="请选择" || e.detail.value.hosp=="" || e.detail.value.people=="") {
+      wx.showModal({
+        title: '提示',
+        content: '请填写完整后提交！',
+        success: function (res) {}
+      })
+    } else {
+      wx.request({
+        url: app.globalData.reqUrl + 'user/addUser',
+        method: 'post',
+        data: {
+          userInfo: userInfo,
+          openId: user.openid,
+          phone: e.detail.value.phone,
+          job: e.detail.value.job,
+          hosp: e.detail.value.hosp,
+          referrer: e.detail.value.people
+        },
+        header: { 'content-type': 'application/json' },
+        success(res) {
+          // if (res.data.code == "9000") {
+            wx.setStorageSync("usertype", "1")
+            wx.navigateTo({
+              url: '/page/component/msg/msg_success'
+            })
+          // } else {
+          //   wx.navigateTo({
+          //     url: '/page/component/msg/msg_fail'
+          //   })
+          // }
         }
-
-      }
-    })
+      })
+    }
   },
   goHome:function(){
     wx.switchTab({

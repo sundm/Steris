@@ -8,7 +8,7 @@
           </navigator>
         </block>
         <block wx:for="{{imgUrls}}" wx:key="index">
-          <navigator bindtap="navClick" url="/" id="{{item.newsId}}">
+          <navigator bindtap="goPro" url="/" id="{{item.newsId}}">
             <swiper-item>
                 <image src="{{imgUrl+item.url}}" class="slide-image" width="100%"/>
             </swiper-item>
@@ -34,7 +34,7 @@
             <view class="select-top-small">
                 <navigator url="/page/component/user/file/file">
                     <image src="/image/home/index/wenjianziliao.png"></image>
-                    <text>会议课件</text>
+                    <text>文件管理</text>
                 </navigator>
             </view>
             <view class="select-top-small">
