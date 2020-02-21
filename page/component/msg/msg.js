@@ -34,6 +34,12 @@ Page({
         success: function (res) {}
       })
     } else {
+      console.log("userInfo:"+userInfo)
+      console.log("openId:"+user.openid)
+      console.log("phone:"+e.detail.value.phone)
+      console.log("job:"+e.detail.value.job)
+      console.log("hosp:"+e.detail.value.hosp)
+      console.log("referrer:"+e.detail.value.people)
       wx.request({
         url: app.globalData.reqUrl + 'user/addUser',
         method: 'post',

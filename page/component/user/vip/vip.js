@@ -7,17 +7,9 @@ Page({
   data: {
     vipCard:[
       {
-        title:'一级会员',
+        title:'尊享会员',
         url:'/image/home/index/canpinhuihuiyuanv1.png',
-        text: ['1、文件下载数量10次']
-      }, {
-        title: '二级会员',
-        url: '/image/home/index/canpinhuihuiyuanv2.png',
-        text: ['1、文件下载数量20次','2、部分产品享受0.99折优惠']
-      }, {
-        title: '三级会员',
-        url: '/image/home/index/canpinhuihuiyuanv3.png',
-        text: ['1、文件下载数量30次', '2、部分产品享受0.95折优惠','3、新产品优先采购权']
+        text:'下载数量20次生命周期函数--监听页面加载生命周期函数--监听页面加载生命周期函数--监听页面加载生命周期函数--监听页面加载生命周期函数--监听页面加载生命周期函数--监听页面加载'
       }
     ],
     showIndex: 0

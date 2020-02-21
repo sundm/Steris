@@ -1,7 +1,7 @@
 <view class="main">
     <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true" class="swiper-top">
         <block  wx:if="{{imgUrls==''}}" wx:key="index">
-          <navigator bindtap="navClick" url="/" id="{{item.newsId}}">
+          <navigator url="/">
             <swiper-item>
                 <image src="/image/tu2.jpg" class="slide-image" width="100%"/>
             </swiper-item>
@@ -10,7 +10,8 @@
         <block wx:for="{{imgUrls}}" wx:key="index">
           <navigator bindtap="goPro" url="/" id="{{item.newsId}}">
             <swiper-item>
-                <image src="{{imgUrl+item.url}}" class="slide-image" width="100%"/>
+                <image src="{{imgUrl+item.url}}" class="slide-image"  data-index="{{ index }}" 
+                style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"  bindload="imageLoad"/>
             </swiper-item>
           </navigator>
         </block>
@@ -20,7 +21,7 @@
         <view class="select-title"><text>会员频道</text></view>
         <view class="select-top">
             <view class="select-top-small">
-                <navigator url="/page/component/user/home/home">
+                <navigator url="/page/component/user/club/club">
                     <image src="/image/home/index/huiyuan_1.png"></image>
                     <text>俱乐部介绍</text>
                 </navigator>

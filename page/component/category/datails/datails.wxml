@@ -2,7 +2,8 @@
 <import src="/wxParse/wxParse.wxml"/>
 <view class="main">
     <view class="goods-box">
-        <image src="{{imgUrl+goods.img}}" class="goods-thumb"></image>
+        <image src="{{imgUrl+goods.img}}" data-index="{{ index }}" 
+                style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"  bindload="imageLoad"></image>
 
         <image wx:if="{{show}}" src="/image/cart1.png" class="to-carts-icon"></image>
         

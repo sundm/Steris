@@ -9,7 +9,8 @@ Page({
     interval: 3000,
     duration: 800,
     headInfo: [],
-    imgUrl: app.globalData.reqUrl
+    imgUrl: app.globalData.reqUrl,
+    images:{}
   },
   onLoad: function (options) {
     this.getNews();
@@ -56,6 +57,22 @@ Page({
     wx.navigateTo({
       url: '/page/component/category/datails/datails?id=' + options.currentTarget.id
     })
+  },
+  imageLoad: function(e) {
+     var $width=e.detail.width,    //获取图片真实宽度
+         $height=e.detail.height,
+         ratio=$width/$height;    //图片的真实宽高比例
+     var viewWidth=750,           //设置图片显示宽度，左右留有16rpx边距
+         viewHeight=750/ratio;    //计算的高度值
+      var image=this.data.images; 
+      //将图片的datadata-index作为image对象的key,然后存储图片的宽高值
+      image[e.target.dataset.index]={
+         width:viewWidth,
+         height:viewHeight
+      }
+      this.setData({
+           images:image
+      })
   },
   /**
    * 获取活动信息

@@ -35,7 +35,7 @@
           <view class="weui-cell__bd">
               <picker bindchange="bindCasPickerChange" value="{{casIndex1}}" range="{{casArray}}">
                 <view>
-                  <input name="job" class="weui-input job" value="{{casArray[casIndex]}}"/>
+                  <input name="job" class="weui-input job" disabled="value" value="{{casArray[casIndex]}}"/>
                 </view>
               </picker>
           </view>

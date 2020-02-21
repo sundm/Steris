@@ -11,6 +11,41 @@
           <text>{{item.title}}</text>
         </view>
       </navigator>
+    </view>
+  </view>
+  <view class="body">
+    <view class="title">
+      <text>
+      俱乐部会员权利
+      </text>
+    </view>
+    <view class="content-box">
+      <text>
+      1、赢祥公司支持会员举行的各类学术活动(如学习班，沙龙会，实践操作体验班，实地用户参观等)，一年一次。
+      </text>
+      <text>2、会员可免费领取赢祥公司最新推出的消毒供应相关领域前沿动态和新闻。</text>
+      <text>
+      3、会员可通过俱乐部了解消毒供应相关知识，俱乐部将向会员提供有关方面的专业服务。
+      </text>
+      <text>4、所有会员售后服务响应时间为4小时。</text>
+      <text>
+      5、为所有会员提供产品资料查询服务。
+      </text>
+    </view>
+  </view>
+</view>
+<!-- <view class="main">
+  <view class="top">
+    <text>会员等级权益划分</text>
+  </view>
+  <view wx:for="{{vipCard}}" wx:key="{{index}}" class="center">
+    <view class="center-body">
+      <navigator url="/" data-index='{{index + 1}}' class="body-title"  bindtap="navClick">
+        <view class="title-all">
+          <image src="{{item.url}}"></image>
+          <text>{{item.title}}</text>
+        </view>
+      </navigator>
       <view class="body-text" wx:if="{{showIndex == index + 1}}">
         <view  wx:for="{{item.text}}" wx:key="{{i}}" wx:for-item="text">
           <text>{{text}}</text>
@@ -21,4 +56,4 @@
   <view class="foot">
   
   </view>
-</view>
+</view> -->

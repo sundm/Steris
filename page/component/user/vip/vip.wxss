@@ -40,3 +40,21 @@ page{
   padding: 0 3% 0 3%;
   font-size: 30rpx;
 }
+
+.body {
+  margin: 0 5% 0 5%;
+}
+.title {
+  border-bottom: 1rpx solid rgb(215, 240, 240);
+  font-size: 45rpx;
+  font-weight: bold;
+}
+.con-suo {
+  margin-left: 5rpx;
+}
+.s-title {
+  font-weight: bold;
+}
+.content-box text{
+  font-size: 28rpx;
+}

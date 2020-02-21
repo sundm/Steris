@@ -24,7 +24,25 @@ Page({
     curIndex: 0,
     show: false,
     scaleCart: false,
-    imgUrl: app.globalData.reqUrl
+    imgUrl: app.globalData.reqUrl,
+    images:{},
+    index:0
+  },
+  imageLoad: function(e) {
+     var $width=e.detail.width,    //获取图片真实宽度
+         $height=e.detail.height,
+         ratio=$width/$height;    //图片的真实宽高比例
+     var viewWidth=550,           //设置图片显示宽度，左右留有16rpx边距
+         viewHeight=550/ratio;    //计算的高度值
+      var image=this.data.images; 
+      //将图片的datadata-index作为image对象的key,然后存储图片的宽高值
+      image[e.target.dataset.index]={
+         width:viewWidth,
+         height:viewHeight
+      }
+      this.setData({
+           images:image
+      })
   },
   bindTap(e) {
     const index = parseInt(e.currentTarget.dataset.index);
