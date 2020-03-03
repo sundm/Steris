@@ -7,26 +7,105 @@ Page({
     casArray: ['请选择', '代理商', '销售人员'],
     zhiArray:[],
     thumb: '',
+    viewShowed: "false", //控制授权是否显示
     nickname: ''
   },
   onLoad: function (){
-    var self = this;
-    /**
-     * 获取用户信息
-     */
-    wx.getUserInfo({
-      success: function (res) {
-        self.setData({
-          thumb: res.userInfo.avatarUrl,
-          nickname: res.userInfo.nickName
-        })
+    var user = wx.getStorageSync('user');
+    wx.request({
+      url: app.globalData.reqUrl + 'user/auth',
+      method: 'post',
+      data: {
+        openId: user.openid
+      },
+      header: { 'content-type': 'application/json' },
+      success(res) {
+        if (res.data.code == "9000") {
+          var usertype = res.data.state;
+          if (usertype == "1") {
+            wx.redirectTo({
+              url: '/page/component/msg/msg_success'
+            })
+          } else if (usertype == "2") {
+            wx.switchTab({
+              url: '/page/component/index'
+            })
+          }
+        }
+
       }
     })
   },
+  getUserInfo(res) {
+    var self = this;
+    if (res.detail.userInfo) {
+      var user = wx.getStorageSync('user') || {};
+      var userInfo = wx.getStorageSync('userInfo') || {};
+      if ((!user.openid || (user.expires_in || Date.now()) < (Date.now() + 600)) && (!userInfo.nickName)) {
+        wx.login({
+          success: function (res) {
+            if (res.code) {
+              wx.request({
+                url: app.globalData.reqUrl + 'wxAuth/callBack?code=' + res.code,
+                data: {},
+                method: 'GET',  
+                success: function (res) {
+                  var obj = {};
+                  obj.openid = res.data.openid;
+                  obj.expires_in = Date(Date.now() + res.data.expires_in);
+                  wx.setStorageSync('user', obj);//存储openid
+                }
+              });
+            } else {
+              console.log('获取用户登录态失败！' + res.errMsg)
+            }
+          }
+        });
+      }
+      self.setData({
+        viewShowed: "false",
+      })
+      wx.setStorageSync('userInfo', res.detail.userInfo);
+    }else{
+      self.setData({
+        viewShowed: "false",
+      })
+    }
+  },
+  /**
+   * 发起请求获取用户状态
+  */
+ userAuth: function () {
+  var user = wx.getStorageSync('user');
+  wx.request({
+    url: app.globalData.reqUrl + 'user/auth',
+    method: 'post',
+    data: {
+      openId: user.openid
+    },
+    header: { 'content-type': 'application/json' },
+    success(res) {
+      if (res.data.code == "9000") {
+        wx.setStorageSync("usertype", res.data.state);
+        wx.setStorageSync("users", res.data.userInfo);
+      } else {
+        wx.setStorageSync("usertype", "0");
+      }
+
+    }
+  })
+},
   //提交表单信息
   formSubmit: function (e) {
+    var that = this;
     var userInfo = wx.getStorageSync('userInfo');
     var user = wx.getStorageSync('user');
+    if(user.openid == undefined){
+      that.setData({
+        viewShowed: "",
+      })
+      return;
+    }
     if (e.detail.value.phone=="" || e.detail.value.job=="请选择" || e.detail.value.hosp=="" || e.detail.value.people=="") {
       wx.showModal({
         title: '提示',
@@ -34,12 +113,6 @@ Page({
         success: function (res) {}
       })
     } else {
-      console.log("userInfo:"+userInfo)
-      console.log("openId:"+user.openid)
-      console.log("phone:"+e.detail.value.phone)
-      console.log("job:"+e.detail.value.job)
-      console.log("hosp:"+e.detail.value.hosp)
-      console.log("referrer:"+e.detail.value.people)
       wx.request({
         url: app.globalData.reqUrl + 'user/addUser',
         method: 'post',
@@ -55,7 +128,7 @@ Page({
         success(res) {
           // if (res.data.code == "9000") {
             wx.setStorageSync("usertype", "1")
-            wx.navigateTo({
+            wx.redirectTo({
               url: '/page/component/msg/msg_success'
             })
           // } else {
@@ -76,6 +149,7 @@ Page({
  * 生命周期函数--监听页面加载
  */
   bindCasPickerChange: function (e) {
+    this.userAuth();
     this.setData({
       casIndex: e.detail.value
     })

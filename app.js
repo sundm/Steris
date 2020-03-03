@@ -3,6 +3,30 @@ App({
     wx.setStorageSync('status', true),
       wx.setStorageSync("usertype", "0"),
     console.log('App Launch')
+    var user = wx.getStorageSync('user');
+    wx.request({
+      url: this.globalData.reqUrl + 'user/auth',
+      method: 'post',
+      data: {
+        openId: user.openid
+      },
+      header: { 'content-type': 'application/json' },
+      success(res) {
+        if (res.data.code == "9000") {
+          var usertype = res.data.state;
+          if (usertype == "1") {
+            wx.redirectTo({
+              url: '/page/component/msg/msg_success'
+            })
+          } else if (usertype == "2") {
+            wx.switchTab({
+              url: '/page/component/index'
+            })
+          }
+        }
+
+      }
+    })
   },
   onShow: function () {
     // if(this.globalData.hasLogin==false){

@@ -9,7 +9,8 @@
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
-                <button class="weui-btn" type="primary" bindtap="openIndex">返回主页</button>
+                <navigator open-type="exit" target="miniProgram"><button class="weui-btn" type="primary">退出小程序</button></navigator>
+                <!-- <button class="weui-btn" type="primary" bindtap="openIndex">返回主页</button> -->
             </view>
         </view>
         

@@ -1,5 +1,0 @@
-<import src="/wxParse/wxParse.wxml"/>
-<view class="offer-detail">
-  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-</view>
-<!-- <web-view src="http://localhost:8089/abc89b67cb.html"></web-view> -->

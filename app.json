@@ -1,6 +1,5 @@
 {
   "pages": [
-    "page/component/auth/auth",
     "page/component/msg/msg",
     "page/component/msg/msg_success",
     "page/component/msg/msg_fail",
@@ -15,7 +14,6 @@
     "page/component/auth/auth-no",
     "page/component/user/club/club",
     "page/component/user/vip/vip",
-    "page/component/test/category",
     "page/component/user/home/home"
     
   ],

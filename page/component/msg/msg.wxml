@@ -1,11 +1,27 @@
 <view class="page">
+  <view class="float" hidden='{{viewShowed}}'>
+    <view class='floatContent'>
+      <view class='floatText'>
+        <text>尊敬的用户，您好！</text>
+        <text>您必须授权才能提交申请！</text>
+        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">去设置</button>
+      </view>
+    </view>
+  </view>
+
   <view class="weui-form">
     <view class="weui-form__text-area">
         <view class="weui-form__title">
-          <image src="{{thumb}}" class="thumb"></image>
+          <view class="thumb">
+            <open-data type="userAvatarUrl" ></open-data>
+          </view>
+          <!-- <image src="{{thumb}}" class="thumb"></image> -->
         </view>
         <view class="weui-form__desc">
-          <text class="nickname">{{nickname}}</text>
+          <!-- <text class="nickname">{{nickname}}</text> -->
+          <view class="nickname">
+            <open-data type="userNickName"></open-data>
+          </view>
         </view>
     </view>
   </view>
@@ -50,8 +66,7 @@
       </view>
       
       <view class="page__hd">
-          <button class="primary" formType="submit">加入WIN家</button>
-          <button class="btn_b weui-btn"bindtap="goHome">暂不加入</button>
+          <button class="primary" formType="submit" >加入WIN家</button>
       </view>
     </form>
   </view>
