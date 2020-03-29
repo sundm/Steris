@@ -4,40 +4,12 @@ Page({
     data: {
       topNum: 0,
       category: [],
-      detail:[
-			{
-            id: 's3',
-            banner: '/image/img/home1.jpg',
-            cate: '设备类',
-            detail: [
-              { thumb: '/image/img/home1.jpg', name: '迈科绝缘检测仪', url: 'datails/datails' },
-              { thumb: '/image/img/home2.jpg', name: '迈科MM513手持式绝缘检测仪', url: '/' },
-              { thumb: '/image/img/home3.jpg', name: '赢祥气体监测仪', url: '/' }
-            ]
-			},
-			{
-        id: 's4', banner: '/image/img/home2.jpg', cate: '耗材类',
-        detail: [
-          { thumb: '/image/img/home7.png', name: '微科器械预处理凝胶', url: '/' },
-          { thumb: '/image/img/home8.png', name: '微科酶清洗剂', url: '/' },
-          { thumb: '/image/img/home9.png', name: '微科碱性清洗剂', url: '/' },
-          { thumb: '/image/img/home10.png', name: '微科器械浓缩润滑剂', url: '/' },
-          { thumb: '/image/img/home11.png', name: '微科浓缩器械除锈剂', url: '/' },
-          { thumb: '/image/img/home6.png', name: '微科除锈湿巾', url: '/' },
-          { thumb: '/image/img/home5.png', name: '微科残胶去除剂', url: '/' }
-        ]
-      },
-      {
-        id: 's5', banner: '/image/img/home2.jpg', cate: '信息类',
-        detail: [
-          { thumb: '/image/img/home4.png', name: '消毒供应室信息化系统', url: '/' }
-        ]
-      }
-		],
-        curIndex: 0,
-        isScroll: false,
-        toView: 'guowei',
-        imgUrl: app.globalData.reqUrl
+      detail:[],
+      curIndex: 0,
+      isScroll: false,
+      toView: 'guowei',
+      imgUrl: app.globalData.reqUrl,
+      images:{}
   },
     /**
      * 生命周期函数--监听页面加载
@@ -82,6 +54,22 @@ Page({
         })
       },1)
     },
+    imageLoad: function(e) {
+      var $width=e.detail.width,    //获取图片真实宽度
+          $height=e.detail.height,
+          ratio=$width/$height;    //图片的真实宽高比例
+      var viewWidth=337,           //设置图片显示宽度，左右留有16rpx边距
+          viewHeight=337/ratio;    //计算的高度值
+       var image=this.data.images; 
+       //将图片的datadata-index作为image对象的key,然后存储图片的宽高值
+       image[e.target.dataset.index]={
+          width:viewWidth,
+          height:viewHeight
+       }
+       this.setData({
+            images:image
+       })
+   },
   getPro(){
     var self = this;
       wx.request({
@@ -90,7 +78,6 @@ Page({
         data: { state: 1 },
         header: { 'content-type': 'application/json' },
         success(res) {
-          console.log(res.data.proTypes)
           self.setData({
             category: res.data.proTypes
           })
@@ -105,7 +92,6 @@ Page({
         data: {},
         header: { 'content-type': 'application/json' },
         success(res) {
-          console.log(res.data.detail)
           self.setData({
             detail: res.data.detail
           })

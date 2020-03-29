@@ -1,20 +1,35 @@
 @import '../../common/common.wxss';
+page{
+    background-color: white;
+    padding-bottom: 30rpx;
+}
 .header{
     position: relative;
     height: 160rpx;
     line-height: 100rpx;
     padding:30rpx 30rpx 30rpx 150rpx;
     box-sizing: border-box;
-    background: #AB956D;
+    background: #3f873e;
     font-size: 28rpx;
     color: #fff;
+    border-bottom: 20rpx rgb(219, 219, 219);
 }
+/* .jia{
+    height: 10rpx;
+    width: 100%;
+    background-color: rgb(219, 219, 219);
+} */
 .header .thumb{
     position: absolute;
     left: 30rpx;
     top: 30rpx;
     width: 100rpx;
     height: 100rpx;
+    border-radius: 50%;
+}
+.thumb{
+    overflow: hidden;
+    display: block;
     border-radius: 50%;
 }
 .header .about{
@@ -116,4 +131,104 @@
     border-radius: 6rpx;
     background: #b42f2d;
     color: #fff;
+}
+
+.select-top{
+    border-bottom: 15rpx  solid #ededed;
+    margin-top: 15rpx;
+    width: 100%;
+    height: 140rpx;
+}
+.select-top-small{
+    width: 24%;
+    height: 140rpx;
+    float: left;
+    margin-left: 0.8%;
+    text-align: center;
+}
+.select-top-small navigator{
+    width: 100%;
+    height: 100%;    
+}
+.select-top-small navigator image{
+  display: block;
+  width: 40%;
+  height: 50%;
+  padding-left: 30%;
+}
+.select-top-small navigator text{
+  font-size: 20rpx;
+}
+
+.box{
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction:column;
+}
+.item-box{
+    margin: 0 1% 15rpx 1%;
+    background-color: white;
+    border-radius: 20rpx;
+}
+.item-title{
+    border-bottom: 1rpx solid whitesmoke;
+    height: 80rpx;
+    line-height: 75rpx;
+    padding-left: 3%;
+    font-size:25rpx;
+    font-weight: normal;
+}
+.item{
+    border-bottom: 1rpx solid whitesmoke;
+    border-right: 1rpx solid whitesmoke;
+    width: 33%;
+    height: 230rpx;
+    background-color: white;
+    float: left;
+}
+.item navigator{
+    width: 100%;
+    height: 100%;   
+    text-align: center; 
+}
+.item navigator image{
+  display: block;
+  width: 30%;
+  height: 30%;
+  padding-left: 35%;
+  padding-top: 20%;
+}
+.item navigator text{
+  font-size: 20rpx;
+}
+.over{
+    overflow: hidden;
+}
+
+
+
+.table {
+    border: 0px solid darkgray;
+}
+.t-top{
+    border-top: 2rpx solid gainsboro; 
+}
+.tr {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 3rem;
+    align-items: center;
+    border-bottom: 1rpx solid gainsboro;
+}
+.td {
+    width:auto;
+    justify-content: center;
+    text-align: center;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+.td image{
+    width: 40rpx;
+    height: 40rpx;
 }

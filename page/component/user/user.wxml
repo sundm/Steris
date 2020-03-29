@@ -1,12 +1,100 @@
 <view class="main">
     <view class="header">
+        <view class="thumb">
+            <open-data type="userAvatarUrl" ></open-data>
+        </view>
+        <view class="nickname">
+            <open-data type="userNickName"></open-data>
+        </view>
         <image src="{{thumb}}" class="thumb"></image>
         <text class="nickname">{{nickname}}</text>
-        <navigator class="about" url="/page/component/user/home/home">关于我们</navigator>
+        <text class="about">  </text>
     </view>
-    <view class="address-box">
-        <view class="address-manage">
-            <navigator url="/page/component/user/member/member">个人信息</navigator>
+    
+
+    <view class="jia"></view>
+    <view class="table">
+        <navigator url="/" bindtap="navClick" class="tr t-top">
+            <view class="td">我的项目</view>
+            <view class="td"> <image src="/image/right.png"></image> </view>
+        </navigator>
+        <navigator url="/page/component/user/vip/vip" class="tr">
+            <view class="td">会员权益</view>
+            <view class="td"> <image src="/image/right.png"></image> </view>
+        </navigator>
+        <navigator url="/page/component/user/club/club" class="tr">
+            <view class="td">关于WINHOME</view>
+            <view class="td"> <image src="/image/right.png"></image> </view>
+        </navigator>
+        <navigator url="/page/component/user/home/home" class="tr">
+            <view class="td">联系我们</view>
+            <view class="td"> <image src="/image/right.png"></image> </view>
+        </navigator>
+        <navigator url="/page/component/user/home/home" class="tr">
+            <view class="td">意见反馈</view>
+            <view class="td"> <image src="/image/right.png"></image> </view>
+        </navigator>
+    </view>
+    
+
+    <!-- <view class="box">
+        <view class="item-box">
+            <view class="item-title">
+                WINHOME
+            </view>
+            <view>
+                <view class="item">
+                    <navigator url="/" bindtap="navClick" id="1">
+                        <image src="/image/home/index/wenjianziliao.png"></image>
+                        <text>产品文件</text>
+                    </navigator>
+                </view>
+                
+                
+                <view class="item">
+                    <navigator url="/page/component/user/club/club">
+                        <image src="/image/home/index/huiyuan_1.png"></image>
+                        <text>俱乐部介绍</text>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator url="/page/component/user/vip/vip">
+                        <image src="/image/home/index/ziyuan.png"></image>
+                        <text>会员权益</text>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator url="/page/component/user/home/home">
+                        <image src="/image/home/index/daxue.png"></image>
+                        <text>关于我们</text>
+                    </navigator>
+                </view>
+                
+                
+            </view>
         </view>
     </view>
+
+    
+    <view class="box">
+        <view class="item-box">
+            <view class="item-title">
+                会员服务
+            </view>
+            <view>
+                <view class="item">
+                    <navigator url="/page/component/user/project/project">
+                        <image src="/image/home/index/ziliaofenlei.png"></image>
+                        <text>项目管理</text>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator url="/">
+                        <image src="/image/home/index/more.png"></image>
+                        <text>敬请期待</text>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+    </view> -->
 </view>

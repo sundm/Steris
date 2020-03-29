@@ -1,74 +1,16 @@
 <!--page/component/user/home/home.wxml-->
 <view class="main">
-  <view class="top">
-    <image src="/image/home/win-logo.png"></image>
-  </view>
+  
   <view class="body">
     <view class="title">
       <text>
-      公司介绍
+      关注我们的公众号,</text>
+      <text>获取更多信息！
       </text>
     </view>
-    <view class="content-box">
-      <text class="con-title">
-        北京赢祥伟业科技发展有限公司（WINSTECH S&T DVPT.CO.,LTD.）成立于2009年4月，是美国WINSTECH CORPORATION的中国总部。
-      </text>
-      <text>
-      公司位于中国北京，在上海设有办事机构，营销网络分布华北、东北、西北、华东、华中、西南以及华南各地，与欧洲、美国、韩国等医疗设备制造商均有长期和良好的合作，主要从事进口医疗安全保障产品的中国市场推广、开拓、销售业务。公司致力于不断引进全球最先进的医疗安全、医疗保障解决方案。自公司成立至今，年营业额增长迅猛。
-      </text>
-    </view>
-    <view class="title">
-      <text>
-      公司文化
-      </text>
-    </view>
-    <view class="content-box">
-      <text>
-      我们的宗旨</text>
-      <text>
-      用创新的理念、最新的产品和贴心的成本，为顾客打造更好的方案。
-      </text>
-      <text>Better solution=creative idea + latest product + affordable cost.</text>
-      <text>
-      我们的愿景
-      </text>
-      <text>无损医疗安全为先——我们专注于医疗安全保障。</text>
-      <text>
-      First Do No Harm – We only focus on healthcare safety.
-      </text>
-      <text>我们的核心价值观（RCP）</text>
-      <text>
-      尊重——客户的满意度与员工的幸福感。
-      </text>
-      <text>品格——诚信、责任、协作、创新。</text>
-      <text>
-      盈利——从为人类健康护航的工作中盈利。
-      </text>
-      <text>Respect— satisfaction of clients and happiness of staff.</text>
-      <text>
-      Characters—honesty, responsibility, cooperation, innovation.
-      </text>
-      <text>Profit—Gain profit from efforts of protecting human’s health.</text>
-    </view>
+  </view>
 
-    <view class="title">
-      <text>
-      业务范围
-      </text>
-    </view>
-    <view class="content-box">
-      <text class="con-title">
-        1. 医疗感染控制产品</text>
-      <text class="con-suo">
-           a.感染控制设备
-           b.清洗、消毒、包装、监测耗材
-      </text>
-      <text class="con-title">
-        2. 医务人员防护产品</text>
-      <text class="con-suo">
-           a.抗疲劳产品
-           b.职业安全防护产品
-      </text>
-    </view>
+  <view class="top">
+    <image src="/image/home/YXYG.jpg"></image>
   </view>
 </view>

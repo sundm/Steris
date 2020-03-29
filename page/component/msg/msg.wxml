@@ -58,10 +58,10 @@
       </view>
       <view class="weui-cell  weui-cell_vcode">
           <view class="weui-cell__hd">
-              <view class="weui-label">医院/地区</view>
+              <view class="weui-label">地区</view>
           </view>
           <view class="weui-cell__bd">
-              <input name="hosp" class="weui-input" placeholder="请输入所属医院/地区" />
+              <input name="hosp" class="weui-input" placeholder="请输入所属地区" />
           </view>
       </view>
       

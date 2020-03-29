@@ -1,0 +1,75 @@
+/* page/component/user/project/project.wxss */
+page{
+  background-color: white;
+  padding-bottom: 300rpx;
+}
+.top{
+  text-align: center;
+  font-size: 50rpx;
+  font-weight: bold;
+  margin-bottom: 4%;
+  margin-top: 6%;
+}
+/* 列表样式 */
+.file-item{
+  border: 5rpx solid whitesmoke;
+  border-radius: 10rpx;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-top: 15rpx;
+  padding-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+.file-item image{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}
+.file-item text{
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+.img{
+  width: 20%;
+  text-align: right;
+}
+.text{
+  width: 80%;
+  text-align: left;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+/* 列表样式 */
+.bottom{
+  margin-top: 600rpx;
+}
+
+.file-bottom{
+  position: fixed;
+  bottom: 50rpx;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  z-index: 9;
+}
+.btn-box{
+  width: 60%;
+  height: 70rpx;
+  border: 5rpx solid whitesmoke;
+  border-radius: 20rpx;
+  text-align: center;
+  font-size: 35rpx;
+  padding-top: 20rpx;
+  color: white;
+  background-color: #1aac19;
+}

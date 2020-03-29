@@ -1,0 +1,73 @@
+<!--page/component/user/project/datail/datail.wxml-->
+<view class='page'>
+  <view class="top">
+    <text>新建项目</text>
+  </view>
+  <!-- 新增部分 -->
+    <block wx:if="{{flag==true}}">
+        <form bindsubmit="formSubmitI" bindreset="formReset">
+            <view class="table">
+                <view class="tr t-top">
+                    <view class="td">项目名称：</view>
+                    <view class="td"><input name="name" class="weui-input" placeholder=""/></view>
+                </view>
+                <view class="tr">
+                    <view class="td">产品名称：</view>
+                    <view class="td"><input name="pName" class="weui-input" placeholder=""/></view>
+                </view>
+                <view class="tr">
+                    <view class="td">所属地区：</view>
+                    <view class="td"><input name="address" class="weui-input" placeholder="" /></view>
+                </view>
+                <view class="tr">
+                    <view class="td">医院名称：</view>
+                    <view class="td"><input name="hosp" class="weui-input" placeholder=""/></view>
+                </view>
+                <view class="tr">
+                    <view class="td">完成时间：</view>
+                    <view class="td"><input name="day" class="weui-input" placeholder=""/></view>
+                </view>
+            </view>
+            <view class="btn-b">
+                <view class="btn">
+                    <button class="kong" formType="submit">提交</button>
+                </view>
+            </view>
+        </form> 
+    </block>
+
+
+  <!-- 修改部分 -->
+  <block wx:else>
+    <form  bindsubmit="formSubmitU" bindreset="formReset">
+        <view class="table">
+            <view class="tr t-top">
+                <input name="id" class="weui-input idVal" placeholder="" value="{{project.id}}"/>
+                <view class="td">项目名称：</view>
+                <view class="td"><input name="name" class="weui-input" placeholder="" value="{{project.name}}"/></view>
+            </view>
+            <view class="tr">
+                <view class="td">产品名称：</view>
+                <view class="td"><input name="pName" class="weui-input" placeholder="" value="{{project.pName}}"/></view>
+            </view>
+            <view class="tr">
+                <view class="td">所属地区：</view>
+                <view class="td"><input name="address" class="weui-input" placeholder="" value="{{project.address}}"/></view>
+            </view>
+            <view class="tr">
+                <view class="td">医院名称：</view>
+                <view class="td"><input name="hosp" class="weui-input" placeholder="" value="{{project.hosp}}"/></view>
+            </view>
+            <view class="tr">
+                <view class="td">完成时间：</view>
+                <view class="td"><input name="day" class="weui-input" placeholder="" value="{{project.day}}"/></view>
+            </view>
+        </view>
+        <view class="btn-b">
+            <view class="btns"><button class="del" bindtap="remove" id="{{project.id}}">删除</button></view>
+            <view class="btns"><button class="kong" formType="submit">修改</button></view>
+        </view>
+    </form> 
+  </block>
+
+</view>

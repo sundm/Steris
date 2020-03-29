@@ -21,4 +21,30 @@
             <!-- <view wx:if="{{curIndex === 1}}">{{goods.service}}</view> -->
         </view>
     </view>
+    <!-- 底部bar -->
+    <view class="file">
+        <view class="container">
+            <view class="title" >
+                <text class="title_txt">更多资料</text>
+                <button class="title_btn" bindtap="toChange">点击查看</button>
+                <!-- <image class="title_icon" src="{{isShow ? '/image/X.png' : '/image/S.png'}}"/> -->
+            </view>
+        </view>
+    </view>
+    <view class="content {{isShow ? 'onFile' : ''}}">
+        <view class='cost flex-colum lr-padding'>
+            <view wx:if="{{fileInfo==''}}" class="kong">
+                此产品暂无相关文件！
+            </view>
+            <view class="file-box" wx:for="{{fileInfo}}" wx:key="key">
+                <navigator class="file-item" url="/" catchtap='openPage' id="{{item.id}}">
+                    <image src="/image/home/wj.png"></image>
+                    <view class="text">
+                        <text class="name">{{item.name}}</text>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="mask-view  {{isShow ? 'onMask' : ''}}"  bindtap="toChange" catchtouchmove='ture'></view>
 </view>

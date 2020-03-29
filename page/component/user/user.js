@@ -1,8 +1,11 @@
 // page/component/new-pages/user/user.js
+//获取应用实例
+const app = getApp()
 Page({
   data:{
     thumb:'',
-    nickname:''
+    nickname:'',
+    typeInfo:[]
   },
   openMsg: function () {
     wx.navigateTo({
@@ -10,13 +13,7 @@ Page({
     })
   },
   onLoad(){
-    this.getUser();
-  },
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    this.getUser();
+    var self = this;
     wx.stopPullDownRefresh();  //停止下拉刷新
   },
   onShow(){
@@ -34,18 +31,35 @@ Page({
       }
     })
   },
-  getUser(){
+  navClick(e){
     var self = this;
-    /**
-     * 获取用户信息
-     */
-    wx.getUserInfo({
-      success: function (res) {
-        self.setData({
-          thumb: res.userInfo.avatarUrl,
-          nickname: res.userInfo.nickName
-        })
+    var user = wx.getStorageSync('user');
+    wx.request({
+      url: app.globalData.reqUrl + 'user/auth',
+      method: 'post',
+      data: {openId: user.openid},
+      header: { 'content-type': 'application/json' },
+      success(res) {
+        if (res.data.code == "9000") {
+          wx.setStorageSync("usertype", res.data.state);
+          wx.setStorageSync("users", res.data.userInfo);
+          if (res.data.userInfo.rId == 3) {
+            wx.navigateTo({
+              url: '/page/component/user/project/project'
+            })
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: '您没有此权限，请联系我们开通！',
+              success: function (res) {}
+            })
+          }
+        } else {
+          wx.setStorageSync("usertype", "0");
+        }
+  
       }
-    })
+    });
+    
   }
 })

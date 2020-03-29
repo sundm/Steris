@@ -16,38 +16,8 @@
           </navigator>
         </block>
     </swiper>
-    
-    <view class="selected">
-        <view class="select-title"><text>会员频道</text></view>
-        <view class="select-top">
-            <view class="select-top-small">
-                <navigator url="/page/component/user/club/club">
-                    <image src="/image/home/index/huiyuan_1.png"></image>
-                    <text>俱乐部介绍</text>
-                </navigator>
-            </view>
-            <view class="select-top-small">
-                <navigator url="/page/component/user/vip/vip">
-                    <image src="/image/home/index/ziyuan.png"></image>
-                    <text>会员权益</text>
-                </navigator>
-            </view>
-            <view class="select-top-small">
-                <navigator url="/page/component/user/file/file">
-                    <image src="/image/home/index/wenjianziliao.png"></image>
-                    <text>文件管理</text>
-                </navigator>
-            </view>
-            <view class="select-top-small">
-                <navigator url="/page/component/user/home/home">
-                    <image src="/image/home/index/daxue.png"></image>
-                    <text>关于我们</text>
-                </navigator>
-            </view>
-        </view>
-    </view>
+   
     <view class="newest">
-        <view class="newest-title"><text>活动通知</text></view>
         <view wx:if="{{headInfo==''}}" class="newest-table-null">
             <text>暂无活动通知！</text>
         </view>
@@ -64,7 +34,7 @@
           </navigator>
         </view>
     </view>
-    <view class="main-foot">
+    <!-- <view class="main-foot">
       <text>-------   我也是有底线的   -------</text>
-    </view>
+    </view> -->
 </view>

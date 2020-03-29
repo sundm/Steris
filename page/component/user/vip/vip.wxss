@@ -1,6 +1,6 @@
 /* page/component/user/vip/vip.wxss */
 page{
-  background-color:rgb(241, 248, 248);
+  background-color:white;
 }
 .main{
   margin-bottom: 50rpx;
@@ -31,7 +31,7 @@ page{
 .body-title{
   height: 400rpx;
   overflow: hidden;
-  background-image: url('https://m.bjwinstech.com:8089/img/timg.jpg');
+  background-image: url('https://w.bjwinstech.com:8089/img/timg.jpg');
   background-size:100% 100%;
 }
 .body-text{

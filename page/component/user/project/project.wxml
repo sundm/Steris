@@ -1,0 +1,20 @@
+<!--page/component/user/project/project.wxml-->
+<view class="top">
+    <text>我的项目</text>
+  </view>
+<view wx:for="{{projectInfo}}" wx:key="key" class="file-box">
+    <navigator url="/" class="file-item" catchtap='openData' id="{{item.id}}">
+      <view class="img">
+        <image src="/image/home/XM.png"></image>
+      </view>
+      <view class="text">
+        <text class="name">{{item.name}}</text>
+      </view>
+    </navigator>
+</view>
+<view class="file-bottom">
+    <navigator url="/page/component/user/project/datail/datail" class="btn-box">
+        <text class="name">创建新项目</text>
+    </navigator>
+</view>
+

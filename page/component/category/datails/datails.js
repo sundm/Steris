@@ -8,16 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goods: {
-      id: 1,
-      image: '/image/img/home1.jpg',
-      title: '迈科绝缘检测仪',
-      price: '####',
-      stock: '有货',
-      detail: '这里是迈科绝缘检测仪详情。',
-      parameter: '规格：######',
-      service: '终身保修'
-    },
+    goods: {},
     num: 1,
     totalNum: 0,
     hasCarts: false,
@@ -26,7 +17,37 @@ Page({
     scaleCart: false,
     imgUrl: app.globalData.reqUrl,
     images:{},
-    index:0
+    isShow: false, //控制收起展开
+    isShow2: false, //控制收起展开
+    index:0,
+    fileInfo:{},
+    files:{}
+  },
+  /*
+    * isShow做取反操作
+    * */
+  toChange: function() {
+    let that = this;
+    that.setData({
+        isShow: !that.data.isShow
+    })
+  },
+  openPage: function (e) {
+     wx.showModal({
+      title: '提示',
+      content: '确认打开预览！',
+      success: function (res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '/page/component/orders/orders?id=' + e.currentTarget.id
+          })
+        } 
+      }
+    })
+    
+    // wx.navigateTo({
+    //   url: '/page/component/user/file/datails/datails?id=' + e.currentTarget.id
+    // })
   },
   imageLoad: function(e) {
      var $width=e.detail.width,    //获取图片真实宽度
@@ -59,7 +80,6 @@ Page({
    */
   onLoad: function (options) {
     var self = this;
-    console.log(options.id);
     wx.request({
       url: app.globalData.reqUrl + 'pro/getPro',
       method: 'post',
@@ -71,6 +91,18 @@ Page({
         WxParse.wxParse('article', 'html', htmlTpl, self, 5);
         self.setData({
           goods: res.data.product
+        })
+      }
+    });
+    wx.request({
+      url: app.globalData.reqUrl + 'files/getFile',
+      method: 'post',
+      data: {type:options.id,state:'1'},
+      header: { 'content-type': 'application/json' },
+      success(res) {
+        console.log(res.data.fileInfo)
+        self.setData({
+          fileInfo: res.data.fileInfo
         })
       }
     })
@@ -123,5 +155,68 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  /**
+  * 下载文件并预览
+  */
+ downloadFile: function (e) {
+ 
+  var self = this;
+  let url = app.globalData.reqUrl +this.data.files.url;
+  console.log(url);
+  var downloadTask = wx.downloadFile({
+    url: url,
+    header: {},
+    success: function (res) {
+      var filePath = res.tempFilePath;
+      console.log(filePath);
+      if (res.statusCode==404) {
+        setTimeout(function () {
+          wx.hideLoading()
+        }, 2000);
+        wx.showModal({
+          title: '提示',
+          content: '加载失败，请重试1！',
+          success: function (res) {
+            
+          }
+        });
+      } else {
+        wx.openDocument({
+          filePath: filePath,
+          success: function (res) {
+            setTimeout(function () {
+              wx.hideLoading()
+            }, 2000);
+          },
+          fail: function (res) {
+            setTimeout(function () {
+              wx.hideLoading()
+            }, 2000);
+          },
+          complete: function (res) {
+            setTimeout(function () {
+              wx.hideLoading()
+            }, 2000);
+          }
+        }) ;
+        
+      }
+    },
+    fail: function (res) {
+      console.log(res)
+      setTimeout(function () {
+        wx.hideLoading()
+      }, 2000);
+      wx.showModal({
+        title: '提示',
+        content: '加载失败，请重试2！',
+        success: function (res) {
+          
+        }
+      })
+    },
+    complete: function (res) { },
+  });
+}
 })

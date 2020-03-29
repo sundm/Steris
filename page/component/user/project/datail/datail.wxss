@@ -1,0 +1,146 @@
+page{
+  background-color: #FFFFFF;
+}
+.page{
+background-color: #FFFFFF;
+}
+.top{
+  text-align: center;
+  font-size: 50rpx;
+  font-weight: bold;
+  margin-bottom: 6%;
+  margin-top: 6%;
+}
+
+
+.weui-form__title{
+width: 100%;
+}
+.weui-form__desc{
+margin-bottom: 30rpx;
+}
+.weui-cell__bd job{
+padding-left:30rpx; 
+}
+.thumb{
+margin: 0 30% 0 33%;
+overflow: hidden;
+display: block;
+width: 200rpx;
+height: 200rpx;
+border-radius: 50%;
+}
+.weui-cell{
+border: none;
+}
+.btn_b{
+margin-top:10rpx; 
+}
+
+
+
+
+.float {
+height: 100%;
+width: 100%;
+position: fixed;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 999;
+top: 0;
+left: 0;
+}
+
+.floatContent {
+padding: 20rpx 0;
+width: 80%;
+background: #fff;
+margin: 40% auto;
+border-radius: 20rpx;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+position: relative;
+height: 332rpx;
+}
+
+.floatText text {
+color: #000;
+font-size: 40rpx;
+display: block;
+text-align: center;
+line-height: 90rpx;
+border-radius: 30rpx;
+margin-right: 10rpx;
+margin-bottom: 10rpx;
+}
+
+.floatText button {
+margin-top: 10rpx;
+}
+.weui-label{
+  text-align: right;
+  width: auto;
+}
+.page__hd{
+  display: inline-flex;
+  width: 100%;
+}
+/* 表格 */
+.table {
+  border: 0px solid darkgray;
+ }
+ .t-top{
+  border-top: 2rpx solid gainsboro;
+ }
+ .tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+  border-bottom: 2rpx solid gainsboro;
+ }
+ .td {
+  width:auto;
+  justify-content: center;
+  text-align: center;
+ }
+ 
+ .btn-b{
+   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 100rpx;
+ }
+ .btn{
+  width: 60%;
+ }
+ .btn-b button{
+   width: 100%;
+ }
+ .btns{
+  width: 40%;
+ }
+ .kong{
+   background-color: #1aac19;
+   color: white;
+ }
+ .del{
+   background-color: whitesmoke;
+ }
+
+ .btn-box{
+  width: 98%;
+  height: 70rpx;
+  border: 5rpx solid whitesmoke;
+  border-radius: 20rpx;
+  text-align: center;
+  padding-top: 15rpx;
+  color: white;
+  background-color: #1aac19;
+}
+.idVal{
+  display: none;
+}

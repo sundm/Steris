@@ -1,6 +1,6 @@
 @import '../common/common.wxss';
 page{
-  background-color:rgb(241, 248, 248);
+  background-color:white;
 }
 
 .search{
@@ -21,9 +21,12 @@ page{
 }
 swiper {
     height: 450rpx;
+    border-bottom: 2rpx solid whitesmoke;
 }
 
-
+.newest{
+  margin-top: 50rpx;
+}
 .select-title,.newest-title{
     width: 100%;
     padding:20rpx 0;
@@ -65,10 +68,10 @@ swiper {
   padding-bottom: 15rpx; 
 }
 .newest-table{
-  background-color: white;
-  border-radius: 8px;
+  background-color: rgb(253, 252, 252);
   height: 185rpx;
-  margin: 15rpx 15rpx 10rpx 15rpx;
+  margin: 10rpx 0rpx 10rpx 0rpx;
+  border: 1rpx solid whitesmoke;
 }
 .newest-table-img{
   border-radius: 15px;
@@ -76,6 +79,7 @@ swiper {
   width: 24%;
   float: left;
   margin: 5rpx 0 0 1%;
+  overflow: hidden;
 }
 .newest-table-img image{
   width: 100%;

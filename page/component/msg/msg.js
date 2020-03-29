@@ -112,6 +112,13 @@ Page({
         content: '请填写完整后提交！',
         success: function (res) {}
       })
+    } else if(!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(e.detail.value.phone))){ 
+      wx.showModal({
+        title: '提示',
+        content: '手机号码格式有误，请重填！',
+        success: function (res) {}
+      });  
+      return; 
     } else {
       wx.request({
         url: app.globalData.reqUrl + 'user/addUser',

@@ -17,7 +17,6 @@ Page({
     this.getHome();
     this.userAuth();
     var usertype = wx.getStorageSync("usertype");
-    console.log("获取到userType：" + usertype);
     var user = wx.getStorageSync('user');
     var userInfo = wx.getStorageSync('userInfo');
   },
@@ -85,7 +84,6 @@ Page({
       data: {state:'1'},
       header: { 'content-type': 'application/json' },
       success(res) {
-        console.log(res.data.headInfo)
         self.setData({
           headInfo: res.data.headInfo
         })
@@ -103,12 +101,21 @@ Page({
       data: {},
       header: { 'content-type': 'application/json' },
       success(res) {
-        console.log(res.data.homes)
         self.setData({
           imgUrls: res.data.homes
         })
       }
     })
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: 'WINHOME',
+      desc: '加入我们！',
+      path: '/page/component/msg/msg'
+    }
   },
   /**
    * 发起请求获取用户状态
