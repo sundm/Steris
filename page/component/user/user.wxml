@@ -37,64 +37,13 @@
     </view>
     
 
-    <!-- <view class="box">
-        <view class="item-box">
-            <view class="item-title">
-                WINHOME
-            </view>
-            <view>
-                <view class="item">
-                    <navigator url="/" bindtap="navClick" id="1">
-                        <image src="/image/home/index/wenjianziliao.png"></image>
-                        <text>产品文件</text>
-                    </navigator>
-                </view>
-                
-                
-                <view class="item">
-                    <navigator url="/page/component/user/club/club">
-                        <image src="/image/home/index/huiyuan_1.png"></image>
-                        <text>俱乐部介绍</text>
-                    </navigator>
-                </view>
-                <view class="item">
-                    <navigator url="/page/component/user/vip/vip">
-                        <image src="/image/home/index/ziyuan.png"></image>
-                        <text>会员权益</text>
-                    </navigator>
-                </view>
-                <view class="item">
-                    <navigator url="/page/component/user/home/home">
-                        <image src="/image/home/index/daxue.png"></image>
-                        <text>关于我们</text>
-                    </navigator>
-                </view>
-                
-                
-            </view>
-        </view>
+   <view class="float" hidden='{{viewShowed}}'>
+    <view class='floatContent'>
+      <view class='floatText'>
+        <text>尊敬的用户，您好！</text>
+        <text>您必须授权才能提交申请！</text>
+        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">去设置</button>
+      </view>
     </view>
-
-    
-    <view class="box">
-        <view class="item-box">
-            <view class="item-title">
-                会员服务
-            </view>
-            <view>
-                <view class="item">
-                    <navigator url="/page/component/user/project/project">
-                        <image src="/image/home/index/ziliaofenlei.png"></image>
-                        <text>项目管理</text>
-                    </navigator>
-                </view>
-                <view class="item">
-                    <navigator url="/">
-                        <image src="/image/home/index/more.png"></image>
-                        <text>敬请期待</text>
-                    </navigator>
-                </view>
-            </view>
-        </view>
-    </view> -->
+  </view>
 </view>

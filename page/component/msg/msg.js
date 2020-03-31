@@ -54,6 +54,35 @@ Page({
                   obj.openid = res.data.openid;
                   obj.expires_in = Date(Date.now() + res.data.expires_in);
                   wx.setStorageSync('user', obj);//存储openid
+                  wx.request({
+                    url: app.globalData.reqUrl + 'user/auth',
+                    method: 'post',
+                    data: {
+                      openId: res.data.openid
+                    },
+                    header: { 'content-type': 'application/json' },
+                    success(res) {
+                      console.log(res.data);
+                      if (res.data.code == "9000") {
+                        var usertype = res.data.state;
+                        if (usertype == "1") {
+                          wx.redirectTo({
+                            url: '/page/component/msg/msg_success'
+                          })
+                        } else if (usertype == "2") {
+                          wx.switchTab({
+                            url: '/page/component/index'
+                          })
+                        }
+                      }else{
+                        wx.showModal({
+                          title: '提示',
+                          content: '提交异常，请重试！',
+                          success: function (res) {}
+                        })
+                      }
+                    }
+                  })
                 }
               });
             } else {

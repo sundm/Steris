@@ -71,7 +71,7 @@ swiper {
   background-color: rgb(253, 252, 252);
   height: 185rpx;
   margin: 10rpx 0rpx 10rpx 0rpx;
-  border: 1rpx solid whitesmoke;
+  border: 4rpx solid whitesmoke;
 }
 .newest-table-img{
   border-radius: 15px;

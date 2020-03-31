@@ -5,8 +5,6 @@
         <image src="{{imgUrl+goods.img}}" data-index="{{ index }}" 
                 style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"  bindload="imageLoad"></image>
 
-        <image wx:if="{{show}}" src="/image/cart1.png" class="to-carts-icon"></image>
-        
         <view class="goods-title">{{goods.name}}</view>
         <view class="goods-price">￥ {{goods.price}}</view>
     </view>
@@ -22,7 +20,7 @@
         </view>
     </view>
     <!-- 底部bar -->
-    <view class="file">
+    <view class="file" catchtouchmove='ture'>
         <view class="container">
             <view class="title" >
                 <text class="title_txt">更多资料</text>
@@ -31,7 +29,7 @@
             </view>
         </view>
     </view>
-    <view class="content {{isShow ? 'onFile' : ''}}">
+    <view class="content {{isShow ? 'onFile' : ''}}" catchtouchmove='ture'>
         <view class='cost flex-colum lr-padding'>
             <view wx:if="{{fileInfo==''}}" class="kong">
                 此产品暂无相关文件！
@@ -47,4 +45,7 @@
         </view>
     </view>
     <view class="mask-view  {{isShow ? 'onMask' : ''}}"  bindtap="toChange" catchtouchmove='ture'></view>
+    <view class="mask-view  {{isShow2 ? 'onLodding' : ''}}" catchtouchmove='ture'>
+        <button class="qx {{isShow2 ? 'unLod' : ''}}" bindtap="unLodding">取消预览</button>
+    </view>
 </view>

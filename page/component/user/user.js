@@ -5,6 +5,7 @@ Page({
   data:{
     thumb:'',
     nickname:'',
+    viewShowed: "false", //控制授权是否显示
     typeInfo:[]
   },
   openMsg: function () {
@@ -17,23 +18,17 @@ Page({
     wx.stopPullDownRefresh();  //停止下拉刷新
   },
   onShow(){
-    var self = this;
-    /**
-     * 获取本地缓存 地址信息
-     */
-    wx.getStorage({
-      key: 'address',
-      success: function(res){
-        self.setData({
-          hasAddress: true,
-          address: res.data
-        })
-      }
-    })
+   
   },
   navClick(e){
     var self = this;
     var user = wx.getStorageSync('user');
+    // if(user.openid == undefined){
+    //   self.setData({
+    //     viewShowed: "",
+    //   })
+    //   return;
+    // }
     wx.request({
       url: app.globalData.reqUrl + 'user/auth',
       method: 'post',
@@ -60,6 +55,41 @@ Page({
   
       }
     });
-    
+  },
+  getUserInfo(res) {
+    var self = this;
+    if (res.detail.userInfo) {
+      var user = wx.getStorageSync('user') || {};
+      var userInfo = wx.getStorageSync('userInfo') || {};
+      if ((!user.openid || (user.expires_in || Date.now()) < (Date.now() + 600)) && (!userInfo.nickName)) {
+        wx.login({
+          success: function (res) {
+            if (res.code) {
+              wx.request({
+                url: app.globalData.reqUrl + 'wxAuth/callBack?code=' + res.code,
+                data: {},
+                method: 'GET',  
+                success: function (res) {
+                  var obj = {};
+                  obj.openid = res.data.openid;
+                  obj.expires_in = Date(Date.now() + res.data.expires_in);
+                  wx.setStorageSync('user', obj);//存储openid
+                }
+              });
+            } else {
+              console.log('获取用户登录态失败！' + res.errMsg)
+            }
+          }
+        });
+      }
+      self.setData({
+        viewShowed: "false",
+      })
+      wx.setStorageSync('userInfo', res.detail.userInfo);
+    }else{
+      self.setData({
+        viewShowed: "false",
+      })
+    }
   }
 })

@@ -106,6 +106,9 @@ margin-top: 10rpx;
   justify-content: center;
   text-align: center;
  }
+ .td input{
+   text-align: left;
+ }
  
  .btn-b{
    width: 100%;

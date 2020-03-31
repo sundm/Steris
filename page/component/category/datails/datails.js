@@ -19,9 +19,11 @@ Page({
     images:{},
     isShow: false, //控制收起展开
     isShow2: false, //控制收起展开
+    openDoc:true,
     index:0,
     fileInfo:{},
-    files:{}
+    files:{},
+    progress: ''
   },
   /*
     * isShow做取反操作
@@ -32,15 +34,41 @@ Page({
         isShow: !that.data.isShow
     })
   },
+  unLodding: function() {
+    let that = this;
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 100);
+    that.setData({isShow2: !that.data.isShow2});
+    that.setData({openDoc: false});
+  },
   openPage: function (e) {
+    var self = this;
      wx.showModal({
       title: '提示',
       content: '确认打开预览！',
       success: function (res) {
         if (res.confirm) {
-          wx.navigateTo({
-            url: '/page/component/orders/orders?id=' + e.currentTarget.id
-          })
+          // 获取文件信息
+          wx.request({
+            url: app.globalData.reqUrl + 'files/byId',
+            method: 'post',
+            data: {id:e.currentTarget.id},
+            async:true,
+            header: { 'content-type': 'application/json' },
+            success(res) {
+              wx.showLoading({
+                title: '加载中',
+              });
+              self.setData({
+                isShow2: !self.data.isShow2
+              });
+              self.downloadFile(res.data.files.url);
+              self.setData({
+                files: res.data.files
+              });
+            }
+          });
         } 
       }
     })
@@ -86,12 +114,11 @@ Page({
       data: {id:options.id},
       header: { 'content-type': 'application/json' },
       success(res) {
-        console.log(res.data.product.afterSale)
-        var htmlTpl = res.data.product.afterSale;
-        WxParse.wxParse('article', 'html', htmlTpl, self, 5);
         self.setData({
           goods: res.data.product
-        })
+        });
+        var htmlTpl = res.data.product.afterSale;
+        WxParse.wxParse('article', 'html', htmlTpl, self, 5);
       }
     });
     wx.request({
@@ -100,7 +127,6 @@ Page({
       data: {type:options.id,state:'1'},
       header: { 'content-type': 'application/json' },
       success(res) {
-        console.log(res.data.fileInfo)
         self.setData({
           fileInfo: res.data.fileInfo
         })
@@ -159,64 +185,48 @@ Page({
   /**
   * 下载文件并预览
   */
- downloadFile: function (e) {
- 
+ downloadFile: function (name) {
   var self = this;
-  let url = app.globalData.reqUrl +this.data.files.url;
-  console.log(url);
-  var downloadTask = wx.downloadFile({
+  self.setData({openDoc: true});
+  let url = app.globalData.reqUrl + name;
+  const DownloadTask = wx.downloadFile({
     url: url,
     header: {},
     success: function (res) {
       var filePath = res.tempFilePath;
-      console.log(filePath);
       if (res.statusCode==404) {
-        setTimeout(function () {
-          wx.hideLoading()
-        }, 2000);
         wx.showModal({
           title: '提示',
-          content: '加载失败，请重试1！',
-          success: function (res) {
-            
-          }
+          content: '加载失败，请重试！',
+          success: function (res) {}
         });
       } else {
-        wx.openDocument({
-          filePath: filePath,
-          success: function (res) {
-            setTimeout(function () {
-              wx.hideLoading()
-            }, 2000);
-          },
-          fail: function (res) {
-            setTimeout(function () {
-              wx.hideLoading()
-            }, 2000);
-          },
-          complete: function (res) {
-            setTimeout(function () {
-              wx.hideLoading()
-            }, 2000);
-          }
-        }) ;
-        
+        if(self.data.openDoc){
+          console.log(filePath);
+          wx.openDocument({
+            filePath: filePath,
+            success: function (res) {
+              self.setData({openDoc: true});
+            },
+            fail: function (res) {},
+            complete: function (res) {}
+          });
+        } 
       }
     },
     fail: function (res) {
-      console.log(res)
-      setTimeout(function () {
-        wx.hideLoading()
-      }, 2000);
       wx.showModal({
         title: '提示',
-        content: '加载失败，请重试2！',
+        content: '网络太差，加载超时，请重试！',
         success: function (res) {
           
         }
       })
     },
-    complete: function (res) { },
+    complete: function (res) { 
+      self.setData({isShow2: false});
+      setTimeout(function () {wx.hideLoading()}, 100);
+    },
   });
 }
 })

@@ -1,7 +1,5 @@
 <!--page/component/user/project/project.wxml-->
-<view class="top">
-    <text>我的项目</text>
-  </view>
+
 <view wx:for="{{projectInfo}}" wx:key="key" class="file-box">
     <navigator url="/" class="file-item" catchtap='openData' id="{{item.id}}">
       <view class="img">
