@@ -6,9 +6,6 @@
         <view class="nickname">
             <open-data type="userNickName"></open-data>
         </view>
-        <image src="{{thumb}}" class="thumb"></image>
-        <text class="nickname">{{nickname}}</text>
-        <text class="about">  </text>
     </view>
     
 
@@ -27,13 +24,15 @@
             <view class="td"> <image src="/image/right.png"></image> </view>
         </navigator>
         <navigator url="/page/component/user/home/home" class="tr">
-            <view class="td">联系我们</view>
+            <view class="td">关注我们</view>
             <view class="td"> <image src="/image/right.png"></image> </view>
         </navigator>
-        <navigator url="/page/component/user/home/home" class="tr">
-            <view class="td">意见反馈</view>
-            <view class="td"> <image src="/image/right.png"></image> </view>
-        </navigator>
+        <button  open-type="feedback" class="trBtn">
+            <navigator url="/" class="tr trBtn">
+                <view class="td">意见反馈</view>
+                <view class="td"> <image src="/image/right.png"></image> </view>
+            </navigator>
+        </button>
     </view>
     
 

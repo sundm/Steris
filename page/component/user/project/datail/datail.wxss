@@ -108,6 +108,7 @@ margin-top: 10rpx;
  }
  .td input{
    text-align: left;
+   width: 250px;
  }
  
  .btn-b{

@@ -22,3 +22,10 @@
 .con-suo {
   margin-left: 5rpx;
 }
+.text{
+  display: inline-flex;
+}
+.copy{
+  margin-left: 15rpx;
+  color: green;
+}

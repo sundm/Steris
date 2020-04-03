@@ -9,6 +9,7 @@ Page({
     interval: 3000,
     duration: 800,
     headInfo: [],
+    ifBottom:false,
     imgUrl: app.globalData.reqUrl,
     images:{}
   },
@@ -27,6 +28,12 @@ Page({
     this.getNews();
     this.userAuth();
     wx.stopPullDownRefresh();  //停止下拉刷新
+  },
+  /**
+   * 页面相关事件处理函数--监听用户上拉触底动作
+   */
+  onReachBottom: function () {
+    this.setData({ifBottom: true});
   },
   /**
    * 判断是否登录

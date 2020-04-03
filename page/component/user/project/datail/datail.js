@@ -6,20 +6,42 @@ Page({
    * 页面的初始数据
    */
   data: {
+    product:[],
+    product2:[],
     project:{},
+    date: '',
+    index: -1,
+    index2: -1,
+    address: '',
     flag:true,
   },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var self = this;
-    console.log(options.id);
+    wx.request({
+      url: app.globalData.reqUrl + 'pro/getProduct',
+      method: 'post',
+      data: {state:1},
+      header: { 'content-type': 'application/json' },
+      success(res) {
+        if(res.data.code=='9000'){
+          self.setData({
+            product: res.data.name,
+            product2: res.data.name
+          })
+        }
+      }
+    });
     if(options.id!=undefined){
+      wx.setNavigationBarTitle({
+        title:"查看项目"
+      });
       self.setData({
         flag: false
-      })
+      });
       wx.request({
         url: app.globalData.reqUrl + 'project/getById',
         method: 'post',
@@ -31,14 +53,42 @@ Page({
               project: res.data.project
             })
           }
-          console.log(res.data)
         }
       })
     }else{
+      var user = wx.getStorageSync('userList');
+      wx.setNavigationBarTitle({
+        title:"新增项目"
+      });
       self.setData({
+        address: user.hosp,
         flag: true
       })
     }
+  },
+  /**
+   * 产品选择框(修改)
+   */
+  bindPickerChange: function(e) {
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  /**
+   * 产品选择框(新增)
+   */
+  bindPickerChange2: function(e) {
+    this.setData({
+      index2: e.detail.value
+    })
+  },
+  /**
+   * 时间选择框
+   */
+  bindDateChange: function(e) {
+    this.setData({
+      date: e.detail.value
+    })
   },
   //提交新增信息
   formSubmitI: function (e) {
@@ -67,6 +117,7 @@ Page({
                 pname: e.detail.value.pName,
                 address: e.detail.value.address,
                 hosp: e.detail.value.hosp,
+                state: e.detail.value.desc,
                 day: e.detail.value.day
               },
               header: { 'content-type': 'application/json' },
@@ -107,6 +158,7 @@ Page({
                 pname: e.detail.value.pName,
                 address: e.detail.value.address,
                 hosp: e.detail.value.hosp,
+                state: e.detail.value.desc,
                 day: e.detail.value.day
               },
               header: { 'content-type': 'application/json' },

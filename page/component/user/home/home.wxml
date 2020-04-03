@@ -11,6 +11,12 @@
   </view>
 
   <view class="top">
-    <image src="/image/home/YXYG.jpg"></image>
+    <view catchtap="saveImg">
+      <image src="/image/home/YXYG.jpg"></image>
+    </view>
+    <view class="text">
+      <view>点击复制公众号：{{contents}} </view>
+      <view bindtap='copyText' data-text="{{contents}}" class="copy">复制</view>
+    </view>
   </view>
 </view>

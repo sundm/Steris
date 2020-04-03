@@ -124,5 +124,5 @@ swiper {
 .main-foot{
   text-align: center;
   font-size: 20rpx;
-  color: #AB956D;
+  color: #3f873e;
 }

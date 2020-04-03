@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    contents:'赢祥易购'
   },
 
   /**
@@ -14,7 +14,25 @@ Page({
   onLoad: function (options) {
 
   },
-
+  copyText: function (e) {
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.text,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            wx.showToast({
+              title: '复制成功'
+            })
+          }
+        })
+      }
+    })
+  },
+  saveImg: function (e) {
+    wx.previewImage({
+      current: '/image/home/YXYG.jpg', // 当前显示图片的http链接
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

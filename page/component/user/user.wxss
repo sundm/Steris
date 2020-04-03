@@ -33,7 +33,9 @@ page{
     border-radius: 50%;
 }
 .header .about{
-    float: right;
+    position: absolute;
+    left: 81px;
+    top: 83rpx;
 }
 
 .address-box{
@@ -209,7 +211,9 @@ page{
 
 .table {
     border: 0px solid darkgray;
+    font-size: 31rpx;
 }
+
 .t-top{
     border-top: 2rpx solid gainsboro; 
 }
@@ -232,7 +236,18 @@ page{
     width: 40rpx;
     height: 40rpx;
 }
-
+.trBtn{
+    position: auto;
+    background-color:#ffffff;
+    border-radius: 0;
+    padding:0rpx;
+    margin:0rpx;
+    display: flex;
+    font-size: 31rpx;
+}
+.trBtn::after {
+    border: none;
+}
 
 
 

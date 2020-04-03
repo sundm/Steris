@@ -22,6 +22,7 @@ Page({
       success(res) {
         if (res.data.code == "9000") {
           var usertype = res.data.state;
+          wx.setStorageSync('userList', res.data.userInfo);
           if (usertype == "1") {
             wx.redirectTo({
               url: '/page/component/msg/msg_success'

@@ -1,31 +1,44 @@
 <!--page/component/user/project/datail/datail.wxml-->
 <view class='page'>
-  <view class="top">
-    <text>新建项目</text>
-  </view>
   <!-- 新增部分 -->
     <block wx:if="{{flag==true}}">
         <form bindsubmit="formSubmitI" bindreset="formReset">
             <view class="table">
                 <view class="tr t-top">
-                    <view class="td">项目名称：</view>
-                    <view class="td"><input name="name" class="weui-input" placeholder=""/></view>
+                    <view class="td t">项目名称：</view>
+                    <view class="td d"><input name="name" class="weui-input" placeholder="" value="{{project.name}}"/></view>
                 </view>
                 <view class="tr">
-                    <view class="td">产品名称：</view>
-                    <view class="td"><input name="pName" class="weui-input" placeholder=""/></view>
+                    <view class="td t">产品名称：</view>
+                    <view class="td d">
+                        <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{product2}}">
+                            <view class="picker">
+                                <input name="pName" value="{{index2==-1 ? project.pName : product[index2]}}" class="weui-input" placeholder=""/>
+                            </view>
+                        </picker>
+                    </view>
                 </view>
                 <view class="tr">
-                    <view class="td">所属地区：</view>
-                    <view class="td"><input name="address" class="weui-input" placeholder="" /></view>
+                    <view class="td t">所属地区：</view>
+                    <view class="td d"><input name="address" value="{{address}}" class="weui-input" placeholder="" /></view>
                 </view>
                 <view class="tr">
-                    <view class="td">医院名称：</view>
-                    <view class="td"><input name="hosp" class="weui-input" placeholder=""/></view>
+                    <view class="td t">医院名称：</view>
+                    <view class="td d"><input name="hosp" class="weui-input" placeholder=""/></view>
                 </view>
                 <view class="tr">
-                    <view class="td">完成时间：</view>
-                    <view class="td"><input name="day" class="weui-input" placeholder=""/></view>
+                    <view class="td t">完成时间：</view>
+                    <view class="td d">
+                        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+                            <view class="picker">
+                                <input name="day" class="weui-input" disabled="value" value="{{date}}" placeholder=""/>
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="tr">
+                    <view class="td t">项目详情：</view>
+                    <view class="td d"><input name="desc" class="weui-input" placeholder=""/></view>
                 </view>
             </view>
             <view class="btn-b">
@@ -43,24 +56,40 @@
         <view class="table">
             <view class="tr t-top">
                 <input name="id" class="weui-input idVal" placeholder="" value="{{project.id}}"/>
-                <view class="td">项目名称：</view>
-                <view class="td"><input name="name" class="weui-input" placeholder="" value="{{project.name}}"/></view>
+                <view class="td t">项目名称：</view>
+                <view class="td d"><input name="name" class="weui-input" placeholder="" value="{{project.name}}"/></view>
             </view>
             <view class="tr">
-                <view class="td">产品名称：</view>
-                <view class="td"><input name="pName" class="weui-input" placeholder="" value="{{project.pName}}"/></view>
+                <view class="td t">产品名称：</view>
+                <view class="td d">
+                    <picker bindchange="bindPickerChange" value="{{index}}" range="{{product}}">
+                        <view class="picker">
+                            <input name="pName" value="{{index==-1 ? project.pName : product[index]}}" class="weui-input" placeholder=""/>
+                        </view>
+                    </picker>
+                </view>
             </view>
             <view class="tr">
-                <view class="td">所属地区：</view>
-                <view class="td"><input name="address" class="weui-input" placeholder="" value="{{project.address}}"/></view>
+                <view class="td t">所属地区：</view>
+                <view class="td d"><input name="address" class="weui-input" placeholder="" value="{{project.address}}"/></view>
             </view>
             <view class="tr">
-                <view class="td">医院名称：</view>
-                <view class="td"><input name="hosp" class="weui-input" placeholder="" value="{{project.hosp}}"/></view>
+                <view class="td t">医院名称：</view>
+                <view class="td d"><input name="hosp" class="weui-input" placeholder="" value="{{project.hosp}}"/></view>
             </view>
             <view class="tr">
-                <view class="td">完成时间：</view>
-                <view class="td"><input name="day" class="weui-input" placeholder="" value="{{project.day}}"/></view>
+                <view class="td t">完成时间：</view>
+                <view class="td d">
+                    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+                        <view class="picker">
+                            <input name="day" class="weui-input" disabled="value" value="{{date=='' ? project.day : date}}" placeholder=""/>
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class="tr">
+                <view class="td t">项目详情：</view>
+                <view class="td d"><input name="desc" class="weui-input" value="{{project.state}}" placeholder=""/></view>
             </view>
         </view>
         <view class="btn-b">

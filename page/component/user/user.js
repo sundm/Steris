@@ -5,6 +5,7 @@ Page({
   data:{
     thumb:'',
     nickname:'',
+    address:'',
     viewShowed: "false", //控制授权是否显示
     typeInfo:[]
   },
@@ -15,6 +16,10 @@ Page({
   },
   onLoad(){
     var self = this;
+    var user = wx.getStorageSync('userList');
+    self.setData({
+      address: user.hosp,
+    })
     wx.stopPullDownRefresh();  //停止下拉刷新
   },
   onShow(){
