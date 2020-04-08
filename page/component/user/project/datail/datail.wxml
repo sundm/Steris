@@ -13,7 +13,7 @@
                     <view class="td d">
                         <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{product2}}">
                             <view class="picker">
-                                <input name="pName" value="{{index2==-1 ? project.pName : product[index2]}}" class="weui-input" placeholder=""/>
+                                <input name="pName" disabled="value" value="{{index2==-1 ? project.pName : product[index2]}}" class="weui-input" placeholder=""/>
                             </view>
                         </picker>
                     </view>
@@ -64,7 +64,7 @@
                 <view class="td d">
                     <picker bindchange="bindPickerChange" value="{{index}}" range="{{product}}">
                         <view class="picker">
-                            <input name="pName" value="{{index==-1 ? project.pName : product[index]}}" class="weui-input" placeholder=""/>
+                            <input name="pName" disabled="value" value="{{index==-1 ? project.pName : product[index]}}" class="weui-input" placeholder=""/>
                         </view>
                     </picker>
                 </view>

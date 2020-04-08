@@ -1,0 +1,10 @@
+/* your styles go here */
+.line-limit-length {
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#tbody td{
+    width: 50px;
+}
