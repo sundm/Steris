@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -64,7 +65,8 @@ public class UserServiceImpl implements UserService {
             user.setJob(req.getJob());
             user.setrId(1);
             user.setState(Constants.USER_STATE_S);
-            user.setReferrer(req.getReferrer());
+            user.setName(req.getReferrer());
+            user.setAddtime(new Date());
             return userMapper.insertSelective(user);
         }catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
@@ -95,6 +97,9 @@ public class UserServiceImpl implements UserService {
             if (req.getRId()!=null){
                 user.setrId(req.getRId());
             }
+            if (req.getName()!=null){
+                user.setReferrer(req.getName());
+            }
             int result = userMapper.updateByPrimaryKeySelective(user);
             if (result == 0){
                 logger.error("User modify error.");
@@ -112,7 +117,11 @@ public class UserServiceImpl implements UserService {
     public List<User> auth(UserInfoReq req) {
         try {
             UserExample example = new UserExample();
-            //example.createCriteria().andOpenIdEqualTo(req.getOpenId());
+            if (req.getState()!=null){
+                example.setOrderByClause("referrer DESC");
+            }else {
+                example.setOrderByClause("addtime DESC");
+            }
             List<User> userList = userMapper.selectByExample(example);
             if (userList == null) {
                 logger.error("Auth error. ");

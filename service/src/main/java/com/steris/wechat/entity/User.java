@@ -1,5 +1,7 @@
 package com.steris.wechat.entity;
 
+import java.util.Date;
+
 public class User {
     private String openId;
 
@@ -19,11 +21,15 @@ public class User {
 
     private String hosp;
 
-    private String referrer;
+    private String name;
 
     private String state;
 
     private String price;
+
+    private String referrer;
+
+    private Date addtime;
 
     public String getOpenId() {
         return openId;
@@ -97,12 +103,12 @@ public class User {
         this.hosp = hosp == null ? null : hosp.trim();
     }
 
-    public String getReferrer() {
-        return referrer;
+    public String getName() {
+        return name;
     }
 
-    public void setReferrer(String referrer) {
-        this.referrer = referrer == null ? null : referrer.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public String getState() {
@@ -119,5 +125,21 @@ public class User {
 
     public void setPrice(String price) {
         this.price = price == null ? null : price.trim();
+    }
+
+    public String getReferrer() {
+        return referrer;
+    }
+
+    public void setReferrer(String referrer) {
+        this.referrer = referrer == null ? null : referrer.trim();
+    }
+
+    public Date getAddtime() {
+        return addtime;
+    }
+
+    public void setAddtime(Date addtime) {
+        this.addtime = addtime;
     }
 }

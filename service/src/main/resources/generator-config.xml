@@ -27,7 +27,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.steris.wechat.dao" targetProject="src/main/java/">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
-        <table tableName="t_home" domainObjectName="Home" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" enableDeleteByPrimaryKey="false" />
+        <table tableName="t_user" domainObjectName="User" enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" enableDeleteByPrimaryKey="false" />
     </context>
 
 

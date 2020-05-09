@@ -46,7 +46,20 @@
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-header">
-                  <h4>已加入会员列表</h4>
+                  <table>
+                    <tr>
+                      <td><h4>已加入会员列表</h4></td>
+                      <td style="padding-left: 20px;">
+                        <h5>排序方式</h5>
+                      </td>
+                      <td style="padding-left: 20px;">
+                        <select id="order">
+                          <option value="0">加入时间</option>
+                          <option value="1">推荐人</option>
+                        </select>
+                      </td>
+                    </tr>
+                  </table>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -58,6 +71,7 @@
                           <th>联系方式</th>
                           <th>医院/地区</th>
                           <th>标签</th>
+                          <th>推荐人</th>
                           <th>状态</th>
                           <th colspan="3" align="center">操作</th>
                         </tr>
@@ -112,8 +126,14 @@
                 <td>
                   <input id="price" cols="50px"/>
                 </td>
-                <td rowspan="2">
+                <td rowspan="3">
                   <button onclick="update()">修改</button>
+                </td>
+              </tr>
+              <tr>
+                <td>推荐人：</td>
+                <td>
+                  <input id="referrer" cols="50px"/>
                 </td>
               </tr>
               <tr>
@@ -174,8 +194,21 @@
       $("#top-import").load("top.html");
       /* LoginClick */
       $(function () {
-          ready();
+          var jsonData ={};
+          ready(jsonData);
       });
+      $("#order").change(function () {
+          var state = $(this).val();
+          if (state==1) {
+              var jsonData ={
+                  state: "1"
+              };
+              ready(jsonData);
+          }else {
+              var jsonData ={};
+              ready(jsonData);
+          }
+      })
       $("#tbody").on('click','.proClick',function(){
           var id = $(this).parent().parent().find(".openId").html();
           var state = $(this).parent().parent().find(".state").html();
@@ -223,7 +256,8 @@
           var jsonData ={
               openId: $("#userId").html(),
               rid: $("#rId").val(),
-              job: $("#price").val()
+              job: $("#price").val(),
+              name: $("#referrer").val()
           };
           modify(jsonData);
       });
@@ -232,8 +266,7 @@
           document.getElementById("rId").disabled="";
           $("#updateSubmit").css("display","block");
       };
-      function ready() {
-          var jsonData ={};
+      function ready(jsonData) {
           $.ajax({
               url:globalURL+"user/getUser",
               type:"POST",
@@ -247,11 +280,12 @@
                           var user = data.userList[i];
                           var tr ="<tr><td style='display: none;' class='openId'>"+user.openId+"</td>" ;
                           tr = tr+"<td style='display: none;' class='state'>"+user.state+"</td>" ;
-                          tr = tr+"<td class='line-limit-length'>"+user.referrer+"</td>" ;
+                          tr = tr+"<td class='line-limit-length'>"+user.name+"</td>" ;
                           tr = tr+"<td class='line-limit-length'>"+user.nickName+"</td>" ;
                           tr = tr+"<td class='line-limit-length'>"+user.phone+"</td>" ;
                           tr = tr+"<td>"+user.hosp+"</td>" ;
                           tr = tr+"<td>"+user.job+"</td>" ;
+                          tr = tr+"<td>"+user.referrer+"</td>" ;
                           if(user.state=='1'){
                               tr = tr+"<td><button class='proClick btn btn-primary' data-toggle='modal' data-target='#myModal'>待审核</button></td>" ;
                           }else if(user.state=='2'){
@@ -284,7 +318,8 @@
               success:function(data){
                   if (data.code=="9000"){
                       alert("修改成功!");
-                      ready();
+                      var jsonData ={};
+                      ready(jsonData);
                   }else {
                       alert("Fail!")
                   }
@@ -303,7 +338,8 @@
               data:JSON.stringify(jsonData),
               success:function(data){
                   if (data.code=="9000"){
-                      ready();
+                      var jsonData ={};
+                      ready(jsonData);
                   }else {
                       alert("Fail!")
                   }

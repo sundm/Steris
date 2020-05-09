@@ -14,6 +14,7 @@ public class UserInfoReq extends BasicReq {
     private String hosp;
     private String referrer;
     private String price;
+    private String name;
 
     private String mailName;
 
